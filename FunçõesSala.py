@@ -21,14 +21,15 @@ def ListarElementoLista(armazenamento):
     # recebendo a procura:
     Elemento = input("Digite o que deseja procurar:")
     # variavel que vai indicar se no final não achou:
-    achou = False
+    achou = True
     # Ver se o Elemento é o procurado
-    for Elemento in armazenamento:
-        if Elemento in armazenamento:
-            print("\nProcura encontrada!")
-            print(Elemento)
-            achou = True
-            input("\nTecle <enter>")
+    if achou:
+        for Elemento in armazenamento:
+            if Elemento in armazenamento:
+                print("\nProcura Finalizada!")
+                print(Elemento)
+                # achou = True
+                input("\nTecle <enter>")
     if not achou:
         print("\nNão encontrei o que procura")
         input("\nTecle <enter>")
@@ -73,25 +74,28 @@ def IncluirSala(armazenamento):  # Inclui Dados da SALA:
         input("Tecle <enter>")
 
 
-# Falta fazer o código de alteração e arrumar o de exclusão.
+# Falta fazer o código de alteração e arrumar o de exclusão onde precisa saber se vai excluir só algum dado ou o par chave/valor.
 def AlterarOuExcluirSalas(armazenamento):
-    print(armazenamento)
-    #armazenado = armazenamento
+    print(armazenamento) # Usado pra visualizar o dic antes de falzer algo
+    
     Dado = input(" Digite o que dado que deseja alterar ou excluir: ")
     if Dado in armazenamento:
         print("\n Para Alterar Digite A ou E para Excluir: ")
         op = str(input("\n Deseja apagar ou excluir? "))
-        op.upper()
-        while op != 'A' or op != 'E':
-            print("\n ERRO!!! opção inválida!! ")
-            op = str(input("\n Deseja apagar ou excluir? "))
-            op.upper()
+        op = op.upper()
+
+        print(op) # Usado pra ver se a variavel estava recebendo o valor correto
+
         if op == 'A':
-            print(' Testando! ')
+            print('\n Testando! ')
+        
+        # Deleta a chave mais os valores passado encontrado no dic
         elif op == 'E':
             del armazenamento[Dado]
             print("\n Dado Excluido com Sucesso! ")
             input("\n TECLE <ENTER>  ")
+        else:
+            print("\n ERRO!!! Opção Inválida!! ")
     else:
         print("\n NÃO FOI ENCONTRADO O DADO ESPECIFICADO! ")
         input("\n TECLE <ENTER> ")
