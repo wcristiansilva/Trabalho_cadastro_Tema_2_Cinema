@@ -76,24 +76,25 @@ def IncluirSala(armazenamento):  # Inclui Dados da SALA:
 # Falta fazer o código de alteração e arrumar o de exclusão.
 def AlterarOuExcluirSalas(armazenamento):
     print(armazenamento)
-    armazenado = armazenamento
+    #armazenado = armazenamento
     Dado = input(" Digite o que dado que deseja alterar ou excluir: ")
-    if Dado in armazenado:
-        print("\n Para Alterar Digite A ou E para Excluir: \n")
-        op = input(" Deseja apagar ou excluir? ").upper
+    if Dado in armazenamento:
+        print("\n Para Alterar Digite A ou E para Excluir: ")
+        op = str(input("\n Deseja apagar ou excluir? "))
+        op.upper()
         while op != 'A' or op != 'E':
-            print(" ERRO!!! opção inválida!! ")
-            op = input(" Deseja apagar ou excluir? ").upper
-            
+            print("\n ERRO!!! opção inválida!! ")
+            op = str(input("\n Deseja apagar ou excluir? "))
+            op.upper()
         if op == 'A':
             print(' Testando! ')
         elif op == 'E':
             del armazenamento[Dado]
-            print(" Dado Excluido com Sucesso! ")
-            input(" TECLE <ENTER>  ")
+            print("\n Dado Excluido com Sucesso! ")
+            input("\n TECLE <ENTER>  ")
     else:
-        print(" NÃO FOI ENCONTRADO O DADO ESPECIFICADO! ")
-        input(" TECLE <ENTER> ")
+        print("\n NÃO FOI ENCONTRADO O DADO ESPECIFICADO! ")
+        input("\n TECLE <ENTER> ")
 
 
 """
