@@ -36,14 +36,14 @@ def Menu():
                 if opcao == 1:
                     ListaTodasSalas(BDSALAS)
                 elif opcao == 2:
-                    ListarElementoLista(IncluirSala())
+                    ListarElementoLista(BDSALAS)
                 elif opcao == 3:
                     IncluirSala(BDSALAS)
                     print(BDSALAS)
                 elif opcao == 4:
                     AlterarOuExcluirSalas(BDSALAS)
                     print(BDSALAS)
-        elif opcao == 2:  # Filmes
+        elif opcao == 2:  # Submenu Filmes
             while opcao != 4:
                 print("1 - Listar Filmes")
                 print("2 - Listar um Elemento do Filme")
@@ -67,7 +67,7 @@ def Menu():
                 elif opcao == 4:
                     AlterarOuExcluirFilmes()
 
-        elif opcao == 3:
+        elif opcao == 3: # Submenu Sessões
             while opcao != 5:
                 print("1 - Listar Sessões")
                 print("2 - Listar um Elemento de uma Sessão")
