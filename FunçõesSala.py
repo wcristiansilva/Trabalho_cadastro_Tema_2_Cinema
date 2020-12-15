@@ -80,11 +80,11 @@ def AlterarOuExcluirSalas(armazenamento):
     Dado = input(" Digite o que dado que deseja alterar ou excluir: ")
     if Dado in armazenado:
         print("\n Para Alterar Digite A ou E para Excluir: \n")
-        op = str(input(" Deseja apagar ou excluir? ")).upper
-        
-        while op not in 'AE' or len(op) != 1:
+        op = input(" Deseja apagar ou excluir? ").upper
+        while op != 'A' or op != 'E':
             print(" ERRO!!! opção inválida!! ")
-            op = str(input(" Deseja apagar ou excluir? ")).upper
+            op = input(" Deseja apagar ou excluir? ").upper
+            
         if op == 'A':
             print(' Testando! ')
         elif op == 'E':
