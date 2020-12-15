@@ -22,14 +22,15 @@ def Menu():
             opcao = int(input("\nDigite a opcao desejada: "))
 
         if opcao == 1:  # Submenu Salas
-            while opcao != 4:
+            while opcao != 5:
                 print("\n1 - Listar Salas")
                 print("2 - Listar um Elemento da Sala")
                 print("3 - Incluir Sala")
                 print("4 - Alterar ou Excluir informação da Sala")
+                print("5 - Para Voltar TECLE <ENTER>")
 
                 opcao = int(input("\nDigite a opcao desejada: "))
-                while opcao < 1 or opcao > 4:
+                while opcao < 1 or opcao > 5:
                     print("Opcao invalida!")
                     opcao = int(input("Digite a opcao desejada: "))
 
@@ -43,6 +44,8 @@ def Menu():
                 elif opcao == 4:
                     AlterarOuExcluirSalas(BDSALAS)
                     print(BDSALAS)
+                elif opcao == 5:
+                    Menu()
         elif opcao == 2:  # Submenu Filmes
             while opcao != 4:
                 print("1 - Listar Filmes")
@@ -95,8 +98,9 @@ def Menu():
 
 """
 
-estou corrigindo a passagem de parametros entre as funções e arrumando o menu principal em uma função separada.
+estou corrigindo a passagem de parametros entre as funções e arrumando o menu principal em uma função separada. ok
 preciso fazer salvar os dados em dicionário e colocar como chave o código e valor usar lista ou tupla dependendo do que 
-for armazenar.
+for armazenar. ok
+preciso achar o pq não está achando o dado pedido pelo usuario no dicionario.
 
 """

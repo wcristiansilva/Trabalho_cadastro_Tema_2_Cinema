@@ -5,34 +5,33 @@ Funções do menu Salas
 
 # Função para listar todas as Salas no Dicionário:
 def ListaTodasSalas(armazenamento):
-    Lista_Todas = armazenamento
-    if len(Lista_Todas) == 0:
-        print("AINDA NÃO FORAM FORNECIDOS DADOS! ")
-        input("TECLE <ENTER>")
+    # Lista_Todas = armazenamento
+    if len(armazenamento) == 0:
+        print("\nAINDA NÃO FORAM FORNECIDOS DADOS! ")
+        input("\nTECLE <ENTER>")
     else:
-        for k, v in Lista_Todas.items():
+        for k, v in armazenamento.items():
             print(f"Código {k} pertence a Sala: {v}")
-        print("*** Listagem Pronta ***")
-        input("Tecle <Enter>")
+        print("\n*** Listagem Pronta ***")
+        input("\nTecle <Enter>")
 
 
-# Função para listar elementos das Salas no Dicionário fornecido pelo Usuário:
+# Função para listar elementos das Salas no Dicionário fornecido pelo Usuário: falta corrigir a procura dentro do dicionario.
 def ListarElementoLista(armazenamento):
     # recebendo a procura:
     Elemento = input("Digite o que deseja procurar:")
     # variavel que vai indicar se no final não achou:
     achou = False
-    if achou:
-        # Ver se o Elemento é o procurado
-        for Elemento in armazenamento.values():
-            if Elemento in armazenamento:
-                print("Procura encontrada!")
-                print(Elemento)
-                achou = True
-                input("Tecle <enter>")
+    # Ver se o Elemento é o procurado
+    for Elemento in armazenamento:
+        if Elemento in armazenamento:
+            print("\nProcura encontrada!")
+            print(Elemento)
+            achou = True
+            input("\nTecle <enter>")
     if not achou:
-        print("Não encontrei o que procura")
-        input("Tecle <enter>")
+        print("\nNão encontrei o que procura")
+        input("\nTecle <enter>")
     print("\n** Procura Finalizada **\n")
 
 
@@ -78,22 +77,22 @@ def IncluirSala(armazenamento):  # Inclui Dados da SALA:
 def AlterarOuExcluirSalas(armazenamento):
     print(armazenamento)
     armazenado = armazenamento
-    dado = str(input(" Digite o que deseja alterar ou excluir: "))
-    if dado in armazenado:
+    Dado = input(" Digite o que dado que deseja alterar ou excluir: ")
+    if Dado in armazenado:
         print("\n Para Alterar Digite A ou E para Excluir: \n")
-        op = input(" Deseja apagar ou excluir? ").upper
-        # op = op.upper()
+        op = str(input(" Deseja apagar ou excluir? ")).upper
+        
         while op not in 'AE' or len(op) != 1:
             print(" ERRO!!! opção inválida!! ")
-            op = input(" Deseja apagar ou excluir? ")
+            op = str(input(" Deseja apagar ou excluir? ")).upper
         if op == 'A':
             print(' Testando! ')
         elif op == 'E':
-            del armazenamento[dado]
+            del armazenamento[Dado]
             print(" Dado Excluido com Sucesso! ")
             input(" TECLE <ENTER>  ")
     else:
-        print(" NÃO FOI ENCONTRADO A ENTRADA ESPECIFICADA! ")
+        print(" NÃO FOI ENCONTRADO O DADO ESPECIFICADO! ")
         input(" TECLE <ENTER> ")
 
 
