@@ -16,7 +16,7 @@ def ListaTodasSalas(armazenamento):
         input("\nTecle <Enter>")
 
 
-# Função para listar elementos das Salas no Dicionário fornecido pelo Usuário: falta corrigir a procura dentro do dicionario.
+# Função para listar elementos das Salas no Dicionário fornecido pelo Usuário: falta corrigir a procura dentro do dicionario. procurar  a sala e mostrar os elementos da mesma 
 def ListarElementoLista(armazenamento):
     # recebendo a procura:
     Elemento = input("Digite o que deseja procurar:")
