@@ -5,13 +5,13 @@ from FunçõesSala import *
 
 
 def Menu():
-    # BDSESSAO = {}
+    BDSESSAO = {}
     BDFILMES = {}
     BDSALAS = {}
 
     opcao = 0
     while opcao != 5:  # Menu Inicial
-        print("1 - Submenu de Salas")
+        print("\n1 - Submenu de Salas")
         print("2 - Submenu de Filmes")
         print("3 - Submenu de Sessões")
         print("4 - Submenu Relatórios")
@@ -27,12 +27,12 @@ def Menu():
                 print("2 - Listar um Elemento da Sala")
                 print("3 - Incluir Sala")
                 print("4 - Alterar ou Excluir informação da Sala")
-                print("5 - Para Voltar TECLE <ENTER>")
+                print("5 - Voltar para o Menu Inicial")
 
                 opcao = int(input("\nDigite a opcao desejada: "))
                 while opcao < 1 or opcao > 5:
                     print("Opcao invalida!")
-                    opcao = int(input("Digite a opcao desejada: "))
+                    opcao = int(input("\nDigite a opcao desejada: "))
 
                 if opcao == 1:
                     ListaTodasSalas(BDSALAS)
@@ -47,29 +47,29 @@ def Menu():
                 elif opcao == 5:
                     Menu()
         elif opcao == 2:  # Submenu Filmes
-            while opcao != 4:
-                print("1 - Listar Filmes")
-                print("2 - Listar um Elemento do Filme")
-                print("3 - Incluir Filme")
-                print("4 - Alterar ou Excluir informação da Filme")
+            while opcao != 5:
+                print("\n1 - Listar Filmes:")
+                print("2 - Listar um Elemento do Filme:")
+                print("3 - Incluir Filme:")
+                print("4 - Alterar ou Excluir informação da Filme:")
+                print("5 - Voltar para o Menu Inicial:")
 
-                opcao = int(input("Digite a opcao desejada: "))
-                while opcao < 1 or opcao > 4:
-                    print("Opcao invalida!")
-                    opcao = int(input("Digite a opcao desejada: "))
+                opcao = int(input("\nDigite a opcao desejada: "))
+                while opcao < 1 or opcao > 5:
+                    print("\nOpcao invalida!")
+                    opcao = int(input("\nDigite a opcao desejada: "))
 
                 if opcao == 1:
-                    ListarTodosFilmes()
+                    ListarTodosFilmes(BDFILMES)
                 elif opcao == 2:
-                    ListarElementoFilme()
+                    ListarElementoFilme(BDFILMES)
                 elif opcao == 3:
                     # inserindo a lista de filmes na lista BDFILMES:
                     IncluirFilmes(BDFILMES)
-                    # mostra a lista BDCINE com as inclusões:
-
                 elif opcao == 4:
-                    AlterarOuExcluirFilmes()
-
+                    AlterarOuExcluirFilmes(BDFILMES)
+                elif opcao == 5:
+                    Menu()
         elif opcao == 3: # Submenu Sessões
             while opcao != 5:
                 print("1 - Listar Sessões")
@@ -82,7 +82,7 @@ def Menu():
                     print("Opcao invalida!")
                     opcao = int(input("Digite a opcao desejada: "))
                     if opcao == 1:
-                        print("Teste")
+                        print(BDSESSAO)
                     elif opcao == 2:
                         print("Teste")
                     elif opcao == 3:

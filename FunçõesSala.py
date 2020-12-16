@@ -11,15 +11,15 @@ def ListaTodasSalas(armazenamento):
         input("\nTECLE <ENTER>")
     else:
         for k, v in armazenamento.items():
-            print(f"Código {k} pertence a Sala: {v}")
+            print(f"\nCódigo {k} pertence a Sala: {v}")
         print("\n*** Listagem Pronta ***")
         input("\nTecle <Enter>")
 
 
-# Função para listar elementos das Salas no Dicionário fornecido pelo Usuário: falta corrigir a procura dentro do dicionario. procurar  a sala e mostrar os elementos da mesma 
+# Função para listar elementos das Salas no Dicionário fornecido pelo Usuário: falta corrigir a procura dentro do dicionario. procurar a sala e mostrar os elementos da mesma 
 def ListarElementoLista(armazenamento):
     # recebendo a procura:
-    Elemento = input("Digite o que deseja procurar:")
+    Elemento = input("\nDigite o que deseja procurar:")
     # variavel que vai indicar se no final não achou:
     achou = True
     # Ver se o Elemento é o procurado
@@ -78,7 +78,7 @@ def IncluirSala(armazenamento):  # Inclui Dados da SALA:
 def AlterarOuExcluirSalas(armazenamento):
     print(armazenamento) # Usado pra visualizar o dic antes de falzer algo
     
-    Dado = input(" Digite o que dado que deseja alterar ou excluir: ")
+    Dado = input(" Digite o dado que deseja alterar ou excluir: ")
     if Dado in armazenamento:
         print("\n Para Alterar Digite A ou E para Excluir: ")
         op = str(input("\n Deseja apagar ou excluir? "))
