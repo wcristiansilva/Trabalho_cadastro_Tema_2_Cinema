@@ -11,33 +11,39 @@ def ListaTodasSalas(armazenamento):
         input("\n TECLE <ENTER>")
     else:
         for k, v in armazenamento.items():
-            print(f"\nCódigo {k} pertence a Sala: {v}")
+            print(f"\n Código {k} pertence a Sala: {v}")
         print("\n *** Listagem Pronta ***")
-        input("\n Tecle <Enter>")
+        input("\n TECLE <ENTER> ")
 
 
 # Função para listar elementos das Salas no Dicionário fornecido pelo Usuário: falta corrigir a procura dentro do dicionario. procurar a sala e mostrar os elementos da mesma 
-def ListarElementoLista(armazenamento):
+def ListaUmaSalaDici(armazenamento):
 
     Procura_lista = input("\n Digite o Código da Sala que deseja pesquisar: ")
     if Procura_lista in armazenamento:
+        
+        print(f"\n A Procura retornou {armazenamento[Procura_lista]}")
+
         # recebendo a procura:
-        Elemento = input("\n Digite o que deseja procurar:")
+        # Elemento = input("\n Digite o que deseja procurar:")
         # variavel que vai indicar se no final não achou:
-        achou = True
+        # achou = True
         # Ver se o Elemento é o procurado
-        if achou:
-            for Elemento in armazenamento:
-                if Elemento in armazenamento:
-                    print("\n Procura Finalizada! ")
-                    print(Elemento)
-                    # achou = True
-                    input("\n TECLE <ENTER> ")
-        if not achou:
-            print("\n Não encontrei o que procura ")
-            input("\n TECLE <ENTER> ")
-        print("\n ** Procura Finalizada ** ")
+        # if achou:
+        #     for Elemento in armazenamento:
+        #         if Elemento in armazenamento:
+        #            print("\n Procura Finalizada! ")
+        #            print(Elemento)
+                     # achou = True
+        #            input("\n TECLE <ENTER> ")
+        # elif not achou:
+        #    print("\n Não encontrei o que procura ")
+        #    input("\n TECLE <ENTER> ")
+    else:
+        print("\n Não encontrei o que procura ")
         input("\n TECLE <ENTER> ")
+    print("\n ** Procura Finalizada ** ")
+    input("\n TECLE <ENTER> ")
 
 
 # Função de Inclusão de Salas Pronta:

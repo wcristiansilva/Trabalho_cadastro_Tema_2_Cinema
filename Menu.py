@@ -5,6 +5,7 @@ from FunçõesSala import *
 
 
 def Menu():
+    # Declaração de Dicionários
     BDSESSAO = {}
     BDFILMES = {}
     BDSALAS = {}
@@ -16,28 +17,28 @@ def Menu():
         print("3 - Submenu de Sessões")
         print("4 - Submenu Relatórios")
         print("5 - Sair")
-        opcao = int(input("\nDigite a opcao desejada: "))
+        opcao = int(input("\n Digite a opcao desejada: "))
         while opcao < 1 or opcao > 5:
-            print("Opcao invalida!")
-            opcao = int(input("\nDigite a opcao desejada: "))
+            print("\n Opcao invalida!")
+            opcao = int(input("\n Digite a opcao desejada: "))
 
         if opcao == 1:  # Submenu Salas
             while opcao != 5:
                 print("\n1 - Listar Salas")
-                print("2 - Listar um Elemento da Sala")
+                print("2 - Listar uma Sala do Cadastro")
                 print("3 - Incluir Sala")
                 print("4 - Alterar ou Excluir informação da Sala")
                 print("5 - Voltar para o Menu Inicial")
 
-                opcao = int(input("\nDigite a opcao desejada: "))
+                opcao = int(input("\n Digite a opcao desejada: "))
                 while opcao < 1 or opcao > 5:
-                    print("Opcao invalida!")
-                    opcao = int(input("\nDigite a opcao desejada: "))
+                    print("\n Opcao invalida!")
+                    opcao = int(input("\n Digite a opcao desejada: "))
 
                 if opcao == 1:
                     ListaTodasSalas(BDSALAS)
                 elif opcao == 2:
-                    ListarElementoLista(BDSALAS)
+                    ListaUmaSalaDici(BDSALAS)
                 elif opcao == 3:
                     IncluirSala(BDSALAS)
                     print(BDSALAS)
