@@ -7,33 +7,37 @@ Funções do menu Salas
 def ListaTodasSalas(armazenamento):
     # Lista_Todas = armazenamento
     if len(armazenamento) == 0:
-        print("\nAINDA NÃO FORAM FORNECIDOS DADOS! ")
-        input("\nTECLE <ENTER>")
+        print("\n AINDA NÃO FORAM FORNECIDOS DADOS! ")
+        input("\n TECLE <ENTER>")
     else:
         for k, v in armazenamento.items():
             print(f"\nCódigo {k} pertence a Sala: {v}")
-        print("\n*** Listagem Pronta ***")
-        input("\nTecle <Enter>")
+        print("\n *** Listagem Pronta ***")
+        input("\n Tecle <Enter>")
 
 
 # Função para listar elementos das Salas no Dicionário fornecido pelo Usuário: falta corrigir a procura dentro do dicionario. procurar a sala e mostrar os elementos da mesma 
 def ListarElementoLista(armazenamento):
-    # recebendo a procura:
-    Elemento = input("\nDigite o que deseja procurar:")
-    # variavel que vai indicar se no final não achou:
-    achou = True
-    # Ver se o Elemento é o procurado
-    if achou:
-        for Elemento in armazenamento:
-            if Elemento in armazenamento:
-                print("\nProcura Finalizada!")
-                print(Elemento)
-                # achou = True
-                input("\nTecle <enter>")
-    if not achou:
-        print("\nNão encontrei o que procura")
-        input("\nTecle <enter>")
-    print("\n** Procura Finalizada **\n")
+
+    Procura_lista = input("\n Digite o Código da Sala que deseja pesquisar: ")
+    if Procura_lista in armazenamento:
+        # recebendo a procura:
+        Elemento = input("\n Digite o que deseja procurar:")
+        # variavel que vai indicar se no final não achou:
+        achou = True
+        # Ver se o Elemento é o procurado
+        if achou:
+            for Elemento in armazenamento:
+                if Elemento in armazenamento:
+                    print("\n Procura Finalizada! ")
+                    print(Elemento)
+                    # achou = True
+                    input("\n TECLE <ENTER> ")
+        if not achou:
+            print("\n Não encontrei o que procura ")
+            input("\n TECLE <ENTER> ")
+        print("\n ** Procura Finalizada ** ")
+        input("\n TECLE <ENTER> ")
 
 
 # Função de Inclusão de Salas Pronta:
@@ -44,18 +48,19 @@ def IncluirSala(armazenamento):  # Inclui Dados da SALA:
     # armazenando na lista BDSALAS / armazenamento:
 
     # pegando o Código que vai ser inserindo no dicionário da Sala:
-    print("\n*** Incluindo nova Sala ***\n")
-    Codigo = str(input("Digite o Código da Sala: "))
+    print("\n *** Incluindo nova Sala *** ")
+    Codigo = str(input("\n Digite o Código da Sala: "))
 
     # Testa se já tem o código no dicionário:
     if Codigo in armazenamento:
-        print("** Código Existente no Sistema **\n")
+        print("\n ** Código Existente no Sistema ** ")
+        input("\n TECLE <ENTER> ")
 
     else:
         # cria uma lista vazia:
         DadosSala = []
         # inclusão dos dados na lista:
-        Nome = str(input("Digite o nome da Sala: "))
+        Nome = input("Digite o nome da Sala: ")
         Capacidade = input("Digite a Capacidade da Sala: ")
         TipoExibicao = input("Digite o Tipo de Exibição da Sala: ")
         Acessibilidade = input("Informe a Acessibilidade da Sala: ")
@@ -69,14 +74,14 @@ def IncluirSala(armazenamento):  # Inclui Dados da SALA:
         # inclui no dicionario o código e a lista com os dados do código cadastrado:
         armazenamento[Codigo] = DadosSala
 
-        print("\n** Dados inseridos com sucesso!**\n")
+        print("\n ** Dados inseridos com sucesso!** ")
 
-        input("Tecle <enter>")
+        input("\n TECLE <ENTER> ")
 
 
 # Falta fazer o código de alteração e arrumar o de exclusão onde precisa saber se vai excluir só algum dado ou o par chave/valor.
 def AlterarOuExcluirSalas(armazenamento):
-    print(armazenamento) # Usado pra visualizar o dic antes de falzer algo
+    # print(armazenamento) # Usado pra visualizar o dic antes de falzer algo durante os teste
     
     Dado = input(" Digite o Código da sala que deseja alterar ou excluir: ")
     if Dado in armazenamento:
@@ -84,21 +89,59 @@ def AlterarOuExcluirSalas(armazenamento):
         op = str(input("\n Deseja apagar ou excluir? "))
         op = op.upper()
 
-        print(op) # Usado pra ver se a variavel estava recebendo o valor correto
+        # print(op) # Usado pra ver se a variavel estava recebendo o valor correto durante os teste
 
+        # Recebe a lista do dicionario e faz alteração por indice.
         if op == 'A':
             altera_lista = armazenamento[Dado]
             print("\nDados da Sala pesquisada abaixo: ")
             print(altera_lista)
-            altera_Dado = input("\nO que deseja alterar da sala com base no mostrado logo acima: ")
-        
-        # Deleta a chave mais os valores passado encontrado no dic
+            altera_Dado = input("\nO que deseja alterar da sala com base no mostrado acima: ")
+            if altera_Dado in altera_lista:
+                i = altera_lista.index(altera_Dado)
+                novo_dado = input("\nDigite o novo Dado a ser salvo: ")
+                altera_lista.pop(i)
+                altera_lista.insert(i, novo_dado)
+                nova_lista = altera_lista
+                armazenamento[Dado] = nova_lista
+                input("\n TECLE <ENTER> ")
+            else:
+                print(f"\nO {altera_Dado} não consta nos arquivos salvos. \n")
+                input("\n TECLE <ENTER> ")
+
+        # Recebe a lista do dicionario e faz a exclusão da Sala toda ou só um dado expecifico por indice.
         elif op == 'E':
-            del armazenamento[Dado]
-            print("\n Dado Excluido com Sucesso! ")
-            input("\n TECLE <ENTER>  ")
+            print("\nDeseja deletar todos os dados da Sala ou somente um?")
+            escolha_deleta = print("\nDigite L para deletar a Sala toda ou D para somente um Dado especifico: ")
+            escolha_deleta = escolha_deleta.upper()
+
+            if escolha_deleta == 'D':
+                deleta_lista = armazenamento[Dado]
+                print("\nDados da Sala pesquisada abaixo: ")
+                print(deleta_lista)
+                deleta_Dado = input("\nO que deseja alterar da sala com base no mostrado acima: ")
+                if deleta_Dado in deleta_lista:
+                    i = deleta_lista.index(deleta_Dado)
+                    novo_dado = input("\nDigite o novo Dado a ser salvo: ")
+                    deleta_lista.pop(i)
+                    deleta_lista.insert(i, novo_dado)
+                    nova_lista = deleta_lista
+                    armazenamento[Dado] = nova_lista
+                    input("\n TECLE <ENTER> ")
+                else:
+                    print(f"\nO {deleta_Dado} não consta nos arquivos salvos. ")
+                    input("\n TECLE <ENTER> ")
+            elif escolha_deleta == 'L':
+                del armazenamento[Dado]
+                print("\n Dado Excluido com Sucesso! ")
+                input("\n TECLE <ENTER>  ")
+            
+            else:
+                print("\n ERRO!!! Opção Inválida!! ")
+                input("\n TECLE <ENTER> ")
         else:
             print("\n ERRO!!! Opção Inválida!! ")
+            input("\n TECLE <ENTER> ")
     else:
         print("\n NÃO FOI ENCONTRADO O DADO ESPECIFICADO! ")
         input("\n TECLE <ENTER> ")

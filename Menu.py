@@ -92,7 +92,7 @@ def Menu():
         elif opcao == 4:
             print("sad")
         elif opcao == 5:
-            print("** programa finalizado **")
+            print("\n** programa finalizado **\n\n")
             break
 
 
