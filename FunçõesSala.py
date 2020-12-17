@@ -78,7 +78,7 @@ def IncluirSala(armazenamento):  # Inclui Dados da SALA:
 def AlterarOuExcluirSalas(armazenamento):
     print(armazenamento) # Usado pra visualizar o dic antes de falzer algo
     
-    Dado = input(" Digite o dado que deseja alterar ou excluir: ")
+    Dado = input(" Digite o Código da sala que deseja alterar ou excluir: ")
     if Dado in armazenamento:
         print("\n Para Alterar Digite A ou E para Excluir: ")
         op = str(input("\n Deseja apagar ou excluir? "))
@@ -87,7 +87,10 @@ def AlterarOuExcluirSalas(armazenamento):
         print(op) # Usado pra ver se a variavel estava recebendo o valor correto
 
         if op == 'A':
-            print('\n Testando! ')
+            altera_lista = armazenamento[Dado]
+            print("\nDados da Sala pesquisada abaixo: ")
+            print(altera_lista)
+            altera_Dado = input("\nO que deseja alterar da sala com base no mostrado logo acima: ")
         
         # Deleta a chave mais os valores passado encontrado no dic
         elif op == 'E':
