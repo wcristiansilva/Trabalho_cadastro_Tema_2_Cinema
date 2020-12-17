@@ -16,7 +16,7 @@ def ListaTodasSalas(armazenamento):
         input("\n TECLE <ENTER> ")
 
 
-# Função para listar elementos das Salas no Dicionário fornecido pelo Usuário: falta corrigir a procura dentro do dicionario. procurar a sala e mostrar os elementos da mesma 
+# Função para listar uma Sala do Dicionário fornecido pelo Usuário pelo Código. 
 def ListaUmaSalaDici(armazenamento):
 
     Procura_lista = input("\n Digite o Código da Sala que deseja pesquisar: ")
@@ -85,7 +85,7 @@ def IncluirSala(armazenamento):  # Inclui Dados da SALA:
         input("\n TECLE <ENTER> ")
 
 
-# Falta fazer o código de alteração e arrumar o de exclusão onde precisa saber se vai excluir só algum dado ou o par chave/valor.
+# Função para Alterar Dados de uma Sala ou Excluir uma Sala inteira ou um Dado passado pelo usuário.
 def AlterarOuExcluirSalas(armazenamento):
     # print(armazenamento) # Usado pra visualizar o dic antes de falzer algo durante os teste
     
