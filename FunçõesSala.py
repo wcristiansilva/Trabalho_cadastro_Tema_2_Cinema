@@ -64,21 +64,21 @@ def IncluirSala(armazenamento):  # Inclui Dados da SALA:
 
     else:
         # cria uma lista vazia:
-        DadosSala = []
+        Dados_Sala = []
         # inclusão dos dados na lista:
         Nome = input("Digite o nome da Sala: ")
         Capacidade = input("Digite a Capacidade da Sala: ")
         TipoExibicao = input("Digite o Tipo de Exibição da Sala: ")
         Acessibilidade = input("Informe a Acessibilidade da Sala: ")
 
-        # Adiciona os Dados na Lista DadosSala:
-        DadosSala.append(Nome)
-        DadosSala.append(Capacidade)
-        DadosSala.append(TipoExibicao)
-        DadosSala.append(Acessibilidade)
+        # Adiciona os Dados na Lista Dados_Sala:
+        Dados_Sala.append(Nome)
+        Dados_Sala.append(Capacidade)
+        Dados_Sala.append(TipoExibicao)
+        Dados_Sala.append(Acessibilidade)
 
         # inclui no dicionario o código e a lista com os dados do código cadastrado:
-        armazenamento[Codigo] = DadosSala
+        armazenamento[Codigo] = Dados_Sala
 
         print("\n ** Dados inseridos com sucesso!** ")
 
