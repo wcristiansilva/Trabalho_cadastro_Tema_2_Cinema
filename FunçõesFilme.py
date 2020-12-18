@@ -3,8 +3,17 @@ Funções do menu Filmes
 """
 
 
-def ListarTodosFilmes():
-    print("Teste")
+# Função para listar todos os Filmes do Dicionário:
+def ListarTodosFilmes(armazenamento):
+    
+    if len(armazenamento) == 0:
+        print("\n AINDA NÃO FORAM FORNECIDOS DADOS! ")
+        input("\n TECLE <ENTER>")
+    else:
+        for k, v in armazenamento.items():
+            print(f"\n Código {k} pertence ao Filme: {v}")
+        print("\n *** Listagem Pronta ***")
+        input("\n TECLE <ENTER> ")
 
 
 def ListarElementoFilme():
