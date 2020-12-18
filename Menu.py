@@ -1,6 +1,6 @@
 from FunçõesFilme import *
 from FunçõesSala import *
-#  from FunçõesSessões import *
+from FunçõesSessões import *
 #  from FunçõesRelatórios import *
 
 
@@ -63,7 +63,7 @@ def Menu():
                 if opcao == 1:
                     ListarTodosFilmes(BDFILMES)
                 elif opcao == 2:
-                    ListarElementoFilme(BDFILMES)
+                    ListaUmFilmeDici(BDFILMES)
                 elif opcao == 3:
                     # inserindo a lista de filmes na lista BDFILMES:
                     IncluirFilmes(BDFILMES)
@@ -73,26 +73,28 @@ def Menu():
                     Menu()
         elif opcao == 3: # Submenu Sessões
             while opcao != 5:
-                print("1 - Listar Sessões")
+                print("\n1 - Listar Sessões")
                 print("2 - Listar um Elemento de uma Sessão")
                 print("3 - Incluir Sessao")
                 print("4 - Alterar ou Excluir informação de uma Sessões")
 
-                opcao = int(input("Digite a opcao desejada: "))
-                while opcao < 1 or opcao > 4:
-                    print("Opcao invalida!")
-                    opcao = int(input("Digite a opcao desejada: "))
-                    if opcao == 1:
-                        print(BDSESSAO)
-                    elif opcao == 2:
-                        print("Teste")
-                    elif opcao == 3:
-                        print("Teste")
-                    elif opcao == 4:
-                        print("Teste")
-        elif opcao == 4:
+                opcao = int(input("\nDigite a opcao desejada: "))
+
+                while opcao < 1 or opcao > 5:
+                    print("\nOpcao invalida!")
+                    opcao = int(input("\nDigite a opcao desejada: "))
+
+                if opcao == 1:
+                    print(BDSESSAO)
+                elif opcao == 2:
+                    print("Teste")
+                elif opcao == 3:
+                    IncluirSessao(BDSESSAO, BDSALAS, BDFILMES)
+                elif opcao == 4:
+                    AlterarOuExcluirSessoes(BDSESSAO)
+        elif opcao == 4:  #Submenu Relatórios
             print("sad")
-        elif opcao == 5:
+        elif opcao == 5:  #Submenu Finalizar Programa
             print("\n** programa finalizado **\n\n")
             break
 

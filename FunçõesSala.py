@@ -153,9 +153,6 @@ def AlterarOuExcluirSalas(armazenamento):
         input("\n TECLE <ENTER> ")
 
 
-"""
-Funções do menu Sessões
-"""
 
 """
 Funções do menu Relatórios
