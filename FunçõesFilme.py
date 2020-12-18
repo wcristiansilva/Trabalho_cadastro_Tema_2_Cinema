@@ -75,9 +75,74 @@ def IncluirFilmes(armazenamento):
 
         print("\n ** Dados inseridos com sucesso!** ")
 
-        input("\n TECLE <ENTER> ")
+        input("\n TECLE <ENTER> ")   
+
+
+# Função para Alterar Dados de um Filme ou Excluir um Filme inteira ou um Dado passado pelo usuário.
+def AlterarOuExcluirFilmes(armazenamento):
+        # print(armazenamento) # Usado pra visualizar o dic antes de falzer algo durante os teste
     
+    Dado = input(" Digite o Código do Filme que deseja alterar ou excluir: ")
+    if Dado in armazenamento:
+        print("\n Para Alterar Digite A ou E para Excluir: ")
+        op = str(input("\n Deseja apagar ou excluir? "))
+        op = op.upper()
 
+        # print(op) # Usado pra ver se a variavel estava recebendo o valor correto durante os teste
 
-def AlterarOuExcluirFilmes():
-    print("Teste")
+        # Recebe a lista do dicionario e faz alteração por indice.
+        if op == 'A':
+            altera_lista = armazenamento[Dado]
+            print("\nDados do Filme pesquisado abaixo: ")
+            print(altera_lista)
+            altera_Dado = input("\nO que deseja alterar do Filme com base no mostrado acima: ")
+            if altera_Dado in altera_lista:
+                i = altera_lista.index(altera_Dado)
+                novo_dado = input("\nDigite o novo Dado a ser salvo: ")
+                altera_lista.pop(i)
+                altera_lista.insert(i, novo_dado)
+                nova_lista = altera_lista
+                armazenamento[Dado] = nova_lista
+                input("\n TECLE <ENTER> ")
+            else:
+                print(f"\nO {altera_Dado} não consta nos arquivos salvos. \n")
+                input("\n TECLE <ENTER> ")
+
+        # Recebe a lista do dicionário e faz a exclusão do Filme todo ou só um dado expecifico por índice.
+        elif op == 'E':
+            print("\nDeseja deletar todos os dados do Filme ou somente um?")
+            escolha_deleta = print("\nDigite L para deletar o Filme todo ou D para somente um Dado especifico: ")
+            escolha_deleta = escolha_deleta.upper()
+
+            if escolha_deleta == 'D':
+                deleta_lista = armazenamento[Dado]
+                print("\nDados do Filme pesquisada abaixo: ")
+                print(deleta_lista)
+                deleta_Dado = input("\nO que deseja alterar do Filme com base no mostrado acima: ")
+                if deleta_Dado in deleta_lista:
+                    i = deleta_lista.index(deleta_Dado)
+                    novo_dado = input("\nDigite o novo Dado a ser salvo: ")
+                    deleta_lista.pop(i)
+                    print("\n **EXCLUIDO DADO COM SUCESSO!!** ")
+                    deleta_lista.insert(i, novo_dado)
+                    nova_lista = deleta_lista
+                    armazenamento[Dado] = nova_lista
+                    input("\n TECLE <ENTER> ")
+                else:
+                    print(f"\nO {deleta_Dado} não consta nos arquivos salvos. ")
+                    input("\n TECLE <ENTER> ")
+            elif escolha_deleta == 'L':
+                del armazenamento[Dado]
+                print("\n Excluido com Sucesso! ")
+                input("\n TECLE <ENTER>  ")
+            
+            else:
+                print("\n ERRO!!! Opção Inválida!! ")
+                input("\n TECLE <ENTER> ")
+        else:
+            print("\n ERRO!!! Opção Inválida!! ")
+            input("\n TECLE <ENTER> ")
+    else:
+        print("\n NÃO FOI ENCONTRADO O DADO ESPECIFICADO! ")
+        input("\n TECLE <ENTER> ")
+
