@@ -154,9 +154,3 @@ def AlterarOuExcluirSalas(armazenamento):
     else:
         print("\n NÃO FOI ENCONTRADO O DADO ESPECIFICADO! ")
         input("\n TECLE <ENTER> ")
-
-
-
-"""
-Funções do menu Relatórios
-"""

@@ -1,7 +1,7 @@
 from FunçõesFilme import *
 from FunçõesSala import *
 from FunçõesSessões import *
-#  from FunçõesRelatórios import *
+from FunçõesRelatórios import *
 
 
 def Menu():
@@ -96,7 +96,20 @@ def Menu():
                 elif subopcao == 5:
                     print("\nVoltando ao Menu Principal!")
         elif opcao == 4:  #Submenu Relatórios
-            print("sad")
+            while subopcao != 4:
+                print("\n1 - Listar Salas entre a Capacidade desejada")
+                print("2 - Listar um Filme do Gênero desejado")
+                print("3 - Listar tudo o que for possivel kkk")
+                print("4 - Voltar para o Menu Inicial")
+
+                subopcao = int(input("\n Digite a opcao desejada: "))
+                while subopcao < 1 or subopcao > 4:
+                    print("\n Opcao invalida!")
+                    opcao = 0
+                    subopcao = int(input("\n Digite a opcao desejada: "))
+                if subopcao == 1:
+                    DadosSalasData(BDSALAS)
+
         elif opcao == 5:  #Submenu Finalizar Programa
             print("\n** programa finalizado **\n\n")
             break
