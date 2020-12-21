@@ -11,15 +11,15 @@ def ListarTodasSessoes(armazenamento):
         input("\n TECLE <ENTER>")
     else:
         for k, v in armazenamento.items():
-            print(f"\n Código {k} pertence ao Filme: {v}")
+            print(f"\n Dados da Sessão {k} Horário da Sessão: {v}")
         print("\n *** Listagem Pronta ***")
         input("\n TECLE <ENTER> ")
 
 
-# Função para listar uma Sessao do Dicionário fornecido pelo Usuário usando o Código do mesmo: Falta modificar a função
-def ListaUmaSessaoDici(armazenamento):
+# Função para listar uma Sessao do Dicionário fornecido pelo Usuário usando dado inserido pelo mesmo: Falta modificar a função
+def ListarUmaSessaoDici(armazenamento):
 
-    Procura_lista = input("\n Digite o Código do Filme que deseja pesquisar: ")
+    Procura_lista = input("\n Digite o Código do Filme para procurar a Sessão: ")
 
     if Procura_lista in armazenamento:
         
@@ -32,19 +32,21 @@ def ListaUmaSessaoDici(armazenamento):
 
 
 # Função de Inclusão de Sessoes: Pronta essa parte
-def IncluirSessao(armazenamento, BDSALA, BDFILMES):      
+def IncluirSessao(armazenamento, BDSALAS, BDFILMES):      
 
     # pegando o Código que vai ser inserindo no dicionário da Sessão:
+    print(BDFILMES)
+    print(BDSALAS)
 
     print("\n *** Incluindo nova Sessão *** ")
     
     Codigo_Filmes = input("\n Digite o Código do Filme: ")
     
     # Testa se já tem o código do Filme no dicionário:
-    if Codigo_Filmes not in BDFILMES: 
+    if Codigo_Filmes in BDFILMES: 
         Codigo_SALAS = input("\n Digite o Códiogo da Sala: ")
         # Testa se já tem o código da Sala no dicionário:
-        if Codigo_SALAS not in BDSALA:              
+        if Codigo_SALAS in BDSALAS:              
             # cria uma lista vazia:
             Dados_NMuda_Sessao = []
             Dados_Sessao = []
@@ -71,6 +73,7 @@ def IncluirSessao(armazenamento, BDSALA, BDFILMES):
                     print("\n ** Dados inseridos com sucesso!** ")
 
                     input("\n TECLE <ENTER> ")
+                    
                 else:
                     print("\n Horário não está Disponível! ")
                     input("\n TECLE <ENTER> ")
@@ -99,50 +102,34 @@ def AlterarOuExcluirSessoes(armazenamento):
 
         # Recebe a lista do dicionario e faz alteração por indice.
         if op == 'A':
-            altera_lista = armazenamento[Dado]
-            print("\nDados do Filme pesquisado abaixo: ")
-            print(altera_lista)
-            altera_Dado = input("\nO que deseja alterar do Filme com base no mostrado acima: ")
-            if altera_Dado in altera_lista:
-                i = altera_lista.index(altera_Dado)
-                novo_dado = input("\nDigite o novo Dado a ser salvo: ")
-                altera_lista.pop(i)
-                altera_lista.insert(i, novo_dado)
-                nova_lista = altera_lista
+            altera_Preco = armazenamento[Dado]
+            print("\nDados da Sessão pesquisada abaixo: ")
+            print(altera_Preco)
+            altera_Dado = input("\nDigite o novo Preço do Ingresso: ")
+            if altera_Dado in altera_Preco:
+                i = altera_Preco.index(altera_Dado)
+                novo_dado = input("\nDigite o novo Preço a ser salvo: ")
+                altera_Preco.pop(i)
+                altera_Preco.insert(i, novo_dado)
+                nova_lista = altera_Preco
                 armazenamento[Dado] = nova_lista
                 input("\n TECLE <ENTER> ")
             else:
                 print(f"\nO {altera_Dado} não consta nos arquivos salvos. \n")
                 input("\n TECLE <ENTER> ")
 
-        # Recebe a lista do dicionário e faz a exclusão do Filme todo ou só um dado expecifico por índice.
+        # Recebe a lista do dicionário e faz a exclusão da Sessão.
         elif op == 'E':
-            print("\nDeseja deletar todos os dados do Filme ou somente um?")
-            escolha_deleta = print("\nDigite L para deletar o Filme todo ou D para somente um Dado especifico: ")
+            print("\nDeseja realmente deletar a Sessão? ")
+            escolha_deleta = print("\nDigite S para deletar a Sessão ou N para desistir: ")
             escolha_deleta = escolha_deleta.upper()
 
-            if escolha_deleta == 'D':
-                deleta_lista = armazenamento[Dado]
-                print("\nDados do Filme pesquisada abaixo: ")
-                print(deleta_lista)
-                deleta_Dado = input("\nO que deseja alterar do Filme com base no mostrado acima: ")
-                if deleta_Dado in deleta_lista:
-                    i = deleta_lista.index(deleta_Dado)
-                    novo_dado = input("\nDigite o novo Dado a ser salvo: ")
-                    deleta_lista.pop(i)
-                    print("\n **EXCLUIDO DADO COM SUCESSO!!** ")
-                    deleta_lista.insert(i, novo_dado)
-                    nova_lista = deleta_lista
-                    armazenamento[Dado] = nova_lista
-                    input("\n TECLE <ENTER> ")
-                else:
-                    print(f"\nO {deleta_Dado} não consta nos arquivos salvos. ")
-                    input("\n TECLE <ENTER> ")
-            elif escolha_deleta == 'L':
+            if escolha_deleta == 'S':
                 del armazenamento[Dado]
                 print("\n Excluido com Sucesso! ")
                 input("\n TECLE <ENTER>  ")
-            
+            elif escolha_deleta == 'N':
+                print("\n Sessão não foi excluida! ")
             else:
                 print("\n ERRO!!! Opção Inválida!! ")
                 input("\n TECLE <ENTER> ")

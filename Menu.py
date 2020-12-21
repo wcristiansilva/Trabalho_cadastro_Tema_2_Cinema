@@ -77,6 +77,7 @@ def Menu():
                 print("2 - Listar um Elemento de uma Sessão")
                 print("3 - Incluir Sessao")
                 print("4 - Alterar ou Excluir informação de uma Sessões")
+                print("5 - Voltar ao menu Principal")
 
                 opcao = int(input("\nDigite a opcao desejada: "))
 
@@ -85,13 +86,15 @@ def Menu():
                     opcao = int(input("\nDigite a opcao desejada: "))
 
                 if opcao == 1:
-                    print(BDSESSAO)
+                    ListarTodasSessoes(BDSESSAO)
                 elif opcao == 2:
-                    print("Teste")
+                    ListarUmaSessaoDici(BDSESSAO)
                 elif opcao == 3:
                     IncluirSessao(BDSESSAO, BDSALAS, BDFILMES)
                 elif opcao == 4:
                     AlterarOuExcluirSessoes(BDSESSAO)
+                elif opcao == 5:
+                    Menu()
         elif opcao == 4:  #Submenu Relatórios
             print("sad")
         elif opcao == 5:  #Submenu Finalizar Programa
@@ -105,5 +108,7 @@ estou corrigindo a passagem de parametros entre as funções e arrumando o menu 
 preciso fazer salvar os dados em dicionário e colocar como chave o código e valor usar lista ou tupla dependendo do que 
 for armazenar. ok
 preciso achar o pq não está achando o dado pedido pelo usuario no dicionario.
+Falta modificar as funções de Sessões e criar a de Relatorios
+
 
 """

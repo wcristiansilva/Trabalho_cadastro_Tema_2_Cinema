@@ -36,7 +36,7 @@ def IncluirFilmes(armazenamento):
    
     # pegando o Código que vai ser inserindo no dicionário do Filme:
     print("\n *** Incluindo novo Filme *** ")
-    Codigo_F = int(input("\nDigite o Código do Filme:"))
+    Codigo_F = input("\nDigite o Código do Filme:")
 
     # Testa se já tem o código no dicionário:
     if Codigo_F in armazenamento:
@@ -57,7 +57,7 @@ def IncluirFilmes(armazenamento):
         Dados_Filmes.append(Genero)
 
         # Recebe a quantidade de atores que tem no Filme Cadastrado:
-        QtAtores = int(input("\n Quantos Atores tem o Filme: "))
+        QtAtores = int(input("\nQuantos Atores tem o Filme: "))
 
         # Cria uma lista para os atores e um contador pro laço enquanto.
         Lst_Atores = []
@@ -70,12 +70,16 @@ def IncluirFilmes(armazenamento):
             cont += 1
         Dados_Filmes.append(Lst_Atores)
 
+        # Tranforma a variável com os códigos em tupla pra não serem alterados:
+        # Codigo_F = tuple(Codigo_F)
+
         # inclui no dicionario o código e a lista com os dados do código cadastrado:
         armazenamento[Codigo_F] = Dados_Filmes
 
         print("\n ** Dados inseridos com sucesso!** ")
 
-        input("\n TECLE <ENTER> ")   
+        input("\n TECLE <ENTER> ")
+        return armazenamento
 
 
 # Função para Alterar Dados de um Filme ou Excluir um Filme inteira ou um Dado passado pelo usuário.

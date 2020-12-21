@@ -55,7 +55,7 @@ def IncluirSala(armazenamento):  # Inclui Dados da SALA:
 
     # pegando o Código que vai ser inserindo no dicionário da Sala:
     print("\n *** Incluindo nova Sala *** ")
-    Codigo = str(input("\n Digite o Código da Sala: "))
+    Codigo = input("\n Digite o Código da Sala: ")
 
     # Testa se já tem o código no dicionário:
     if Codigo in armazenamento:
@@ -77,12 +77,16 @@ def IncluirSala(armazenamento):  # Inclui Dados da SALA:
         Dados_Sala.append(TipoExibicao)
         Dados_Sala.append(Acessibilidade)
 
+        # Tranforma a variável com os códigos em tupla pra não serem alterados:
+        # Codigo = tuple(Codigo)
+
         # inclui no dicionario o código e a lista com os dados do código cadastrado:
         armazenamento[Codigo] = Dados_Sala
 
         print("\n ** Dados inseridos com sucesso!** ")
 
         input("\n TECLE <ENTER> ")
+        return armazenamento
 
 
 # Função para Alterar Dados de uma Sala ou Excluir uma Sala inteira ou um Dado passado pelo usuário.
