@@ -86,7 +86,6 @@ def IncluirSala(armazenamento):  # Inclui Dados da SALA:
         print("\n ** Dados inseridos com sucesso!** ")
 
         input("\n TECLE <ENTER> ")
-        return armazenamento
 
 
 # Função para Alterar Dados de uma Sala ou Excluir uma Sala inteira ou um Dado passado pelo usuário.

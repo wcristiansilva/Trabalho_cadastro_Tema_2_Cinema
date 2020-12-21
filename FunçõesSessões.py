@@ -139,4 +139,3 @@ def AlterarOuExcluirSessoes(armazenamento):
     else:
         print("\n NÃO FOI ENCONTRADO O DADO ESPECIFICADO! ")
         input("\n TECLE <ENTER> ")
-

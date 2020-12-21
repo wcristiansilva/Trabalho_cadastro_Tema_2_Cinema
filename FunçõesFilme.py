@@ -79,7 +79,6 @@ def IncluirFilmes(armazenamento):
         print("\n ** Dados inseridos com sucesso!** ")
 
         input("\n TECLE <ENTER> ")
-        return armazenamento
 
 
 # Função para Alterar Dados de um Filme ou Excluir um Filme inteira ou um Dado passado pelo usuário.
