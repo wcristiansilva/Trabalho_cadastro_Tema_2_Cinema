@@ -20,5 +20,7 @@ def DadosSalasCapacidade(armazenamento):
             print(f"\n Dados da Sessão {k} Horário da Sessão: {v}")
         print("\n *** Listagem Pronta ***")
         input("\n TECLE <ENTER> ")
-        
+
         '''
+
+def DadosFilmesGenero():
