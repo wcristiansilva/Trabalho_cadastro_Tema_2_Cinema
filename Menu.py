@@ -108,7 +108,7 @@ def Menu():
                     opcao = 0
                     subopcao = int(input("\n Digite a opcao desejada: "))
                 if subopcao == 1:
-                    DadosSalasData(BDSALAS)
+                    DadosSalasCapacidade(BDSALAS)
 
         elif opcao == 5:  #Submenu Finalizar Programa
             print("\n** programa finalizado **\n\n")
