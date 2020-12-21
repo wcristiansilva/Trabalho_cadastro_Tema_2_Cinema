@@ -25,3 +25,4 @@ def DadosSalasCapacidade(armazenamento):
         '''
 
 def DadosFilmesGenero():
+    print("TESTANDO")
