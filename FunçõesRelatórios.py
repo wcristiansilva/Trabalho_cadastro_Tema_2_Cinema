@@ -3,26 +3,84 @@ Funções do menu Relatórios
 
 """
 
-def DadosSalasCapacidade(armazenamento):
+def DadosSalasCapacidade(BDSALAS):
     
-    Data_Dados = armazenamento[1][1]
-    if len(armazenamento) == 0:
+    if len(BDSALAS) == 0:
         print("\n AINDA NÃO FORAM FORNECIDOS DADOS! ")
         input("\n TECLE <ENTER>")
-    # armazenamento_lista = list(armazenamento)
     else:
-        Capacidade_Procura1 = input("\n Digite a Capacidade inicial desejado: ")
-        Capacidade_Procura2 = input("\n Digite a Capacidade final desejada: ")
-        for cont in range(len(armazenamento)):
-            if Data_Dados[1][1] < Capacidade_Procura1 and Data_Dados[1][1] > Capacidade_Procura2:
-                print("Testando")
-        '''
-        for k, v in armazenamento.items():
-            print(f"\n Dados da Sessão {k} Horário da Sessão: {v}")
-        print("\n *** Listagem Pronta ***")
-        input("\n TECLE <ENTER> ")
+        Capacidade_minima = int(input("\n Digite a Capacidade minima desejada: "))
+        Capacidade_maxima = int(input("\n Digite a Capacidade maxima desejada: "))
+        
+        for sala in BDSALAS:
+            lista = BDSALAS[sala]
+            lista = list(lista)
+            if lista[1] >= Capacidade_minima and lista[1] <= Capacidade_maxima:
+                print(f"\n As Salas com a capacidade pedida são: {lista}")
+                
+                print("\n *** Listagem Pronta ***")
+                input("\n TECLE <ENTER> ")
+            else:
+                print("\n *** Capacidade não encontrada ***")
+                input("\n TECLE <ENTER> ")
 
-        '''
 
-def DadosFilmesGenero():
-    print("TESTANDO")
+def DadosFilmesGenero(BDFILMES):
+    
+    if len(BDFILMES) == 0:
+        print("\n AINDA NÃO FORAM FORNECIDOS DADOS! ")
+        input("\n TECLE <ENTER>")
+    else:
+        Genero = input("\n Digite o Gênero desejado: ")
+
+        print(f"\n Os Filmes com o Gênero pedido são: ")        
+        for filmes in BDFILMES:
+            lista = BDFILMES[filmes]
+            #lista = list(lista)
+            print(lista)
+            if Genero == lista[2]:
+                print(f"\n {lista}")
+                
+                print("\n *** Listagem Pronta ***")
+                input("\n TECLE <ENTER> ")
+            else:
+                print(f"\n *** O Gênero {Genero}, solicitado não Existe! ***")
+                input("\n TECLE <ENTER> ")
+
+
+def DadosSalasFilmesPorData(BDSESSAO, BDSALAS, BDFILMES):
+
+    if len(BDSESSAO) == 0 and len(BDSALAS) == 0 and len(BDFILMES) == 0:
+        print("\n AINDA NÃO FORAM FORNECIDOS DADOS! ")
+        input("\n TECLE <ENTER>")
+    else:
+        Data_inicial = input("\nDigite o Ano minimo para pesquisa: ")
+        Data_final = input("\nDigite o Ano maximo para pesquisa: ")
+        Sessao = BDSESSAO
+        Sessao = list(Sessao)
+        
+
+        for sessao in Sessao:
+            lista_sessao = Sessao[sessao]
+            lista = list(lista_sessao)
+            if lista[2] >= Data_inicial and lista[2] <= Data_final:
+                print(f"\n As Salas com a capacidade pedida são: {lista_sessao}")
+
+
+
+
+
+def report_rent_period(database):
+    _, _, rents = database
+    print('Insira as data inicial e a data final, separadas por vírgula: ')
+    input_str = input()
+    initial_date_str, final_date_str = input_str.split(',')
+    initial_date = date_parser.parse(initial_date_str)
+    final_date = date_parser.parse(final_date_str)
+ 
+    for rent_key in rents:
+        date = date_parser.parse(rents[rent_key]['Data de Entrada'])
+        if initial_date <= date <= final_date:
+            pp(rents[rent_key])
+ 
+    return

@@ -19,11 +19,11 @@ def Menu():
         print("3 - Submenu de Sessões")
         print("4 - Submenu Relatórios")
         print("5 - Sair")
-        opcao = int(input("\n Digite a opcao desejada: "))
+        opcao = int(input("\nDigite a opcao desejada: "))
         while opcao < 1 or opcao > 5:
             print("\n Opcao invalida!")
             opcao = 0
-            opcao = int(input("\n Digite a opcao desejada: "))
+            opcao = int(input("\nDigite a opcao desejada: "))
 
         if opcao == 1:  # Submenu Salas
             while subopcao != 5:
@@ -97,19 +97,24 @@ def Menu():
                     print("\nVoltando ao Menu Principal!")
         elif opcao == 4:  #Submenu Relatórios
             while subopcao != 4:
-                print("\n1 - Listar Salas entre a Capacidade desejada")
-                print("2 - Listar um Filme do Gênero desejado")
-                print("3 - Listar tudo o que for possivel kkk")
-                print("4 - Voltar para o Menu Inicial")
+                print("\n1 - Listar Salas entre a Capacidade desejada:")
+                print("2 - Listar um Filme do Gênero desejado:")
+                print("3 - Listar Filme, Sala e Sessão por um intervalo de datas: Não rolou :/")
+                print("4 - Voltar para o Menu Inicial:")
 
-                subopcao = int(input("\n Digite a opcao desejada: "))
+                subopcao = int(input("\nDigite a opcao desejada: "))
                 while subopcao < 1 or subopcao > 4:
-                    print("\n Opcao invalida!")
+                    print("\n ** Opção invalida! ** ")
                     opcao = 0
-                    subopcao = int(input("\n Digite a opcao desejada: "))
+                    subopcao = int(input("\nDigite a opcao desejada: "))
                 if subopcao == 1:
                     DadosSalasCapacidade(BDSALAS)
-
+                elif subopcao == 2:
+                    DadosFilmesGenero(BDFILMES)
+                elif subopcao == 3:
+                    DadosSalasFilmesPorData(BDSESSAO, BDSALAS, BDFILMES)
+                elif subopcao == 4:
+                    print("\n ** Voltando ao Menu Principal! ** ")
         elif opcao == 5:  #Submenu Finalizar Programa
             print("\n** programa finalizado **\n\n")
             break
@@ -117,7 +122,7 @@ def Menu():
 
 """
 
-Paritu função relatórios e pau pra quem te quer que Deus me ajude kkk
+Paritu função relatórios e pau pra quem te quer, que Deus me ajude kkk
 
 
 """

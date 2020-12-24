@@ -5,26 +5,27 @@ Funções do menu Filmes
 
 
 # Função para listar todos os Filmes do Dicionário:
-def ListarTodosFilmes(armazenamento):
-    
-    if len(armazenamento) == 0:
-        print("\n AINDA NÃO FORAM FORNECIDOS DADOS! ")
+def ListarTodosFilmes(BDFILMES):
+   # Lista_Todas = armazenamento
+    if len(BDFILMES) == 0:
+        print("\n AINDA NÃO FORAM CADASTRADO DADOS! ")
         input("\n TECLE <ENTER>")
     else:
-        for k, v in armazenamento.items():
-            print(f"\n Código {k} pertence ao Filme: {v}")
+        for sala, dados in BDFILMES.items():
+            print(f"\n Código do Filme: {sala} ", end='')
+            print(f" Dados: {dados}")
         print("\n *** Listagem Pronta ***")
         input("\n TECLE <ENTER> ")
 
 
 # Função para listar um Filme do Dicionário fornecido pelo Usuário pelo Código.
-def ListaUmFilmeDici(armazenamento):
+def ListaUmFilmeDici(BDFILMES):
 
-    Procura_lista = input("\n Digite o Código do Filme que deseja pesquisar: ")
+    Procura_lista = int(input("\n Digite o Código do Filme que deseja pesquisar: "))
 
-    if Procura_lista in armazenamento:
+    if Procura_lista in BDFILMES:
         
-        print(f"\n A Procura retornou {armazenamento[Procura_lista]}")
+        print(f"\n A Procura retornou {BDFILMES[Procura_lista]}")
     else:
         print("\n Não encontrei o que procura ")
         input("\n TECLE <ENTER> ")
@@ -33,14 +34,14 @@ def ListaUmFilmeDici(armazenamento):
 
 
 # Função de Inclusão de Filmes:
-def IncluirFilmes(armazenamento):      
+def IncluirFilmes(BDFILMES):      
    
     # pegando o Código que vai ser inserindo no dicionário do Filme:
     print("\n *** Incluindo novo Filme *** ")
-    Codigo_F = input("\nDigite o Código do Filme:")
+    Codigo_F = int(input("\nDigite o Código do Filme: "))
 
     # Testa se já tem o código no dicionário:
-    if Codigo_F in armazenamento:
+    if Codigo_F in BDFILMES:
         print("\n ** Código Existente no Sistema ** ")
         input("\n TECLE <ENTER> ")
 
@@ -48,9 +49,9 @@ def IncluirFilmes(armazenamento):
         # cria uma lista vazia:
         Dados_Filmes = []
         # inclusão dos dados na lista:
-        Nome = input("Digite o nome do Filme:")
-        AnoLancamento = input("Digite o Ano de Lançamento:")
-        Genero = input("Digite o Gênero:")
+        Nome = input("Digite o nome do Filme: ")
+        AnoLancamento = input("Digite o Ano de Lançamento: ")
+        Genero = input("Digite o Gênero: ")
 
         # Adiciona os Dados na Lista Dados_Filmes:
         Dados_Filmes.append(Nome)
@@ -71,32 +72,29 @@ def IncluirFilmes(armazenamento):
             cont += 1
         Dados_Filmes.append(Lst_Atores)
 
-        # Tranforma a variável com os códigos em tupla pra não serem alterados:
-        # Codigo_F = tuple(Codigo_F)
-
         # inclui no dicionario o código e a lista com os dados do código cadastrado:
-        armazenamento[Codigo_F] = Dados_Filmes
+        BDFILMES[Codigo_F] = Dados_Filmes
 
-        print("\n ** Dados inseridos com sucesso!** ")
-
+        print("\n ** Dados inseridos com sucesso! ** ")
         input("\n TECLE <ENTER> ")
 
 
 # Função para Alterar Dados de um Filme ou Excluir um Filme inteira ou um Dado passado pelo usuário.
-def AlterarOuExcluirFilmes(armazenamento):
+def AlterarOuExcluirFilmes(BDFILMES): 
         # print(armazenamento) # Usado pra visualizar o dic antes de falzer algo durante os teste
     
-    Dado = input(" Digite o Código do Filme que deseja alterar ou excluir: ")
-    if Dado in armazenamento:
+    Dado = int(input(" Digite o Código do Filme que deseja alterar ou excluir: "))
+    if Dado in BDFILMES:
         print("\n Para Alterar Digite A ou E para Excluir: ")
-        op = str(input("\n Deseja apagar ou excluir? "))
-        op = op.upper()
+        op = input("\n Deseja apagar ou excluir? ").upper()[0]
 
         # print(op) # Usado pra ver se a variavel estava recebendo o valor correto durante os teste
 
         # Recebe a lista do dicionario e faz alteração por indice.
         if op == 'A':
-            altera_lista = armazenamento[Dado]
+            print("\n** ALTERANDO DADOS **")
+            altera_lista = BDFILMES[Dado]
+            altera_sublista = BDFILMES[Dado][3]
             print("\nDados do Filme pesquisado abaixo: ")
             print(altera_lista)
             altera_Dado = input("\nO que deseja alterar do Filme com base no mostrado acima: ")
@@ -106,37 +104,62 @@ def AlterarOuExcluirFilmes(armazenamento):
                 altera_lista.pop(i)
                 altera_lista.insert(i, novo_dado)
                 nova_lista = altera_lista
-                armazenamento[Dado] = nova_lista
+                BDFILMES[Dado] = nova_lista
+                print("\n ** DADO ALTERADO COM SUCESSO **")
+                input("\n TECLE <ENTER> ")
+
+            elif altera_Dado in altera_sublista:
+                i = altera_sublista.index(altera_Dado)
+                novo_dado = input("\nDigite o novo Dado a ser salvo: ")
+                altera_sublista.pop(i)
+                altera_sublista.insert(i, novo_dado)
+                altera_lista.pop(3)
+                altera_lista.insert(3, altera_sublista)
+                BDFILMES[Dado] = altera_lista
+                print("\n ** DADO ALTERADO COM SUCESSO **")
                 input("\n TECLE <ENTER> ")
             else:
-                print(f"\nO {altera_Dado} não consta nos arquivos salvos. \n")
+                print(f"\nO dado {altera_Dado} não consta nos arquivos salvos. \n")
                 input("\n TECLE <ENTER> ")
+                
 
         # Recebe a lista do dicionário e faz a exclusão do Filme todo ou só um dado expecifico por índice.
         elif op == 'E':
             print("\nDeseja deletar todos os dados do Filme ou somente um?")
-            escolha_deleta = print("\nDigite L para deletar o Filme todo ou D para somente um Dado especifico: ")
-            escolha_deleta = escolha_deleta.upper()
+            escolha_deleta = input("\nDigite T para deletar o Filme todo ou D para somente um Dado especifico: ").upper()[0]
 
             if escolha_deleta == 'D':
-                deleta_lista = armazenamento[Dado]
+                deleta_lista = BDFILMES[Dado]
+                deleta_sublista = BDFILMES[Dado][3]
                 print("\nDados do Filme pesquisada abaixo: ")
                 print(deleta_lista)
-                deleta_Dado = input("\nO que deseja alterar do Filme com base no mostrado acima: ")
+                deleta_Dado = input("\nO que deseja deletar do Filme com base no mostrado acima: ")
+                # apaga o dado passado pelo usúario na lista
                 if deleta_Dado in deleta_lista:
                     i = deleta_lista.index(deleta_Dado)
-                    novo_dado = input("\nDigite o novo Dado a ser salvo: ")
+                    #novo_dado = input("\nDigite o novo Dado a ser Deletado: ")
                     deleta_lista.pop(i)
-                    print("\n **EXCLUIDO DADO COM SUCESSO!!** ")
-                    deleta_lista.insert(i, novo_dado)
+                    #deleta_lista.insert(i, novo_dado)
                     nova_lista = deleta_lista
-                    armazenamento[Dado] = nova_lista
+                    BDFILMES[Dado] = nova_lista
+                    print("\n ** DADO EXCLUIDO COM SUCESSO!! ** ")
+                    input("\n TECLE <ENTER> ")
+                # apaga o dado passado pelo usúario na sublista
+                elif deleta_Dado in deleta_sublista:
+                    i = deleta_sublista.index(deleta_Dado)
+                    #novo_dado = input("\nDigite o novo Dado a ser salvo: ")
+                    deleta_sublista.pop(i)
+                    #deleta_sublista.insert(i, novo_dado)
+                    deleta_lista.pop(3)
+                    deleta_lista.insert(3, deleta_sublista)
+                    BDFILMES[Dado] = deleta_lista
+                    print("\n ** DADO EXCLUIDO COM SUCESSO **")
                     input("\n TECLE <ENTER> ")
                 else:
                     print(f"\nO {deleta_Dado} não consta nos arquivos salvos. ")
                     input("\n TECLE <ENTER> ")
-            elif escolha_deleta == 'L':
-                del armazenamento[Dado]
+            elif escolha_deleta == 'T':
+                del BDFILMES[Dado]
                 print("\n Excluido com Sucesso! ")
                 input("\n TECLE <ENTER>  ")
             
@@ -149,4 +172,3 @@ def AlterarOuExcluirFilmes(armazenamento):
     else:
         print("\n NÃO FOI ENCONTRADO O DADO ESPECIFICADO! ")
         input("\n TECLE <ENTER> ")
-
