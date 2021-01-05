@@ -3,6 +3,7 @@ Funções do menu Relatórios
 
 """
 
+
 def DadosSalasCapacidade(BDSALAS):
     
     if len(BDSALAS) == 0:
