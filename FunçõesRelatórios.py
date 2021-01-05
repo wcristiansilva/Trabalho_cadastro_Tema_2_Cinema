@@ -65,22 +65,3 @@ def DadosSalasFilmesPorData(BDSESSAO, BDSALAS, BDFILMES):
             lista = list(lista_sessao)
             if lista[2] >= Data_inicial and lista[2] <= Data_final:
                 print(f"\n As Salas com a capacidade pedida são: {lista_sessao}")
-
-
-
-
-
-def report_rent_period(database):
-    _, _, rents = database
-    print('Insira as data inicial e a data final, separadas por vírgula: ')
-    input_str = input()
-    initial_date_str, final_date_str = input_str.split(',')
-    initial_date = date_parser.parse(initial_date_str)
-    final_date = date_parser.parse(final_date_str)
- 
-    for rent_key in rents:
-        date = date_parser.parse(rents[rent_key]['Data de Entrada'])
-        if initial_date <= date <= final_date:
-            pp(rents[rent_key])
- 
-    return
