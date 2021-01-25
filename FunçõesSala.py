@@ -12,24 +12,25 @@ def ListaTodasSalas(BDSALAS):
         input("\n TECLE <ENTER>")
     else:
         for sala, dados in BDSALAS.items():
-            print(f"\n Código da Sala: {sala} ", end='')
-            print(f" Dados: {dados}")
-            #for dados in BDSALAS.items():
-                #print(f"Sala {dados}")
-        print("\n *** Listagem Pronta ***")
+            print(f"\n Código da Sala: {sala} Dados: {dados}", end='')
+            # print(f"\n {BDSALAS} \n")
+        print("\n\n *** Listagem Pronta ***")
         input("\n TECLE <ENTER> ")
 
 
 # Função para listar uma Sala do Dicionário fornecido pelo Usuário pelo Código. 
 def ListaUmaSalaDici(BDSALAS):
-
-    Procura_lista = int(input("\n Digite o Código da Sala que deseja pesquisar: "))
-    if Procura_lista in BDSALAS:
-        
-        print(f"\n A Procura Desejada: {BDSALAS[Procura_lista]}")
+    if len(BDSALAS) == 0:
+        print("\n AINDA NÃO FORAM CADASTRADO DADOS! ")
+        input("\n TECLE <ENTER>")
     else:
-        print("\n Não encontrei o que procura ")
-        input("\n TECLE <ENTER> ")
+        Procura_lista = int(input("\n Digite o Código da Sala que deseja pesquisar: "))
+
+        if Procura_lista in BDSALAS:
+            print(f"\n A Procura retornou a Sala com o Código: {Procura_lista} e seus Dados: {BDSALAS[Procura_lista]}")
+        else:
+            print("\n Não encontrei o que procura ")
+            input("\n TECLE <ENTER> ")
     print("\n ** Procura Finalizada ** ")
     input("\n TECLE <ENTER> ")
 
@@ -66,7 +67,6 @@ def IncluirSala(armazenamento):
         Dados_Sala.append(Acessibilidade)
 
         # Tranforma a variável com os códigos em tupla pra não serem alterados:
-        # Codigo = tuple(Codigo)
 
         # inclui no dicionario o código e a lista com os dados do código cadastrado:
         armazenamento[Codigo] = Dados_Sala

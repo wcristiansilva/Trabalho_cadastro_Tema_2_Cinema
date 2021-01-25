@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="feea0f48-6c77-4b49-b0fd-679681c046ff" name="Default Changelist" comment="Terminando a função de listas.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunçõesFilme.py" beforeDir="false" afterPath="$PROJECT_DIR$/FunçõesFilme.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunçõesRelatórios.py" beforeDir="false" afterPath="$PROJECT_DIR$/FunçõesRelatórios.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunçõesSala.py" beforeDir="false" afterPath="$PROJECT_DIR$/FunçõesSala.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunçõesSessões.py" beforeDir="false" afterPath="$PROJECT_DIR$/FunçõesSessões.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +72,8 @@
       <workItem from="1608006651038" duration="543000" />
       <workItem from="1608683427151" duration="89000" />
       <workItem from="1608683584613" duration="750000" />
+      <workItem from="1609890323895" duration="30000" />
+      <workItem from="1609890410860" duration="34000" />
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />

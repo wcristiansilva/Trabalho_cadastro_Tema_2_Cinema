@@ -2,18 +2,18 @@
 Funções do menu Sessões
 
 """
-
+from datetime import datetime
 
 # Função para listar todas as Sessões do Dicionário: Falta modificar a função
 def ListarTodasSessoes(BDSESSOES):
-    # Lista_Todas = armazenamento
+    
     if len(BDSESSOES) == 0:
         print("\n AINDA NÃO FORAM CADASTRADO DADOS! ")
         input("\n TECLE <ENTER>")
     else:
         for sala, dados in BDSESSOES.items():
-            print(f"\n Sessão: {sala} ", end='')
-            print(f" Valor do Ingresso: {dados}")
+            print(f"\n Sessão: {sala}  Valor do Ingresso: {dados}")
+            # print(f"\n {BDSESSOES} \n")
         print("\n *** Listagem Pronta ***")
         input("\n TECLE <ENTER> ")
 
@@ -34,13 +34,10 @@ def ListarUmaSessaoDici(BDSESSOES):
 
 
 # Função de Inclusão de Sessoes: Pronta essa parte
-def IncluirSessao(BDSESSOES, BDSALAS, BDFILMES):      
-
-    # print(BDFILMES)
-    # print(BDSALAS)
+def IncluirSessao(BDSESSOES, BDSALAS, BDFILMES):
 
     # Verifica se tem sala e filme cadastrado pra continuar com o cadastro de sessão
-    if len(BDSALAS) == 0 and len(BDFILMES) == 0:
+    if (len(BDFILMES) == 0 or len(BDSALAS) == 0):
         print("\n** NÃO É POSSIVEL INCLUIR UMA SESSÃO SEM FILMES OU SALAS CADASTRADAS **")
     else:
         # pegando os Códigos que vão ser inserido no dicionário da Sessão:
@@ -59,19 +56,20 @@ def IncluirSessao(BDSESSOES, BDSALAS, BDFILMES):
                 
                 # inclusão dos dados na lista:
                 
-                Data_da_Sessão = input("\nDigite a Data da Sessão: ex:14/02: ")
+                Data_Sessao = input("\nDigite a Data da Sessão: ex:01-01-1001: ")
+                
                 Horário_da_Sessão = input("\nDigite o Horário da Sessão: ")
 
                 # montando a tupla que vai ser a chave do dicionario sessoes
                 
-                tupla = (Codigo_do_Filme, Codigo_da_Sala, Data_da_Sessão, Horário_da_Sessão)
+                Key_Codigo_Sessao = (Codigo_do_Filme, Codigo_da_Sala, Data_Sessao, Horário_da_Sessão)
                 # verificando se já existe uma sessão com esses dados
                 
-                if tupla not in BDSESSOES:
+                if Key_Codigo_Sessao not in BDSESSOES:
                     # recebendo o preco do ingresso
                     preco = input("\nDigite o Valor do Ingresso: ")
                     # inclui esta sessao no dicionario:
-                    BDSESSOES[ tupla ] = preco
+                    BDSESSOES[Key_Codigo_Sessao] = preco
                     print(BDSESSOES)
                     print("\n ** Dados inseridos com sucesso! ** ")
                     input("\n TECLE <ENTER> ")

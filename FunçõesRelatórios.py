@@ -2,7 +2,18 @@
 Funções do menu Relatórios
 
 """
+from datetime import *
 
+def compara(d1, d2):  # Função para comparar e retorna um valor se for o pedido
+    d1 = datetime.strptime(d1, '%d-%m-%Y')
+    d2 = datetime.strptime(d2, '%d-%m-%Y')
+
+    if d1 >= d2 or d1 <= d2:
+        return 1
+    elif d1 == d2:
+        return 0
+    else:
+        return -1
 
 def DadosSalasCapacidade(BDSALAS):
     
@@ -49,20 +60,42 @@ def DadosFilmesGenero(BDFILMES):
                 input("\n TECLE <ENTER> ")
 
 
-def DadosSalasFilmesPorData(BDSESSAO, BDSALAS, BDFILMES):
+def compara1(c1, d2):  # Função para comparar e retorna um valor se for o pedido para a função DadosSalasFilmesPorData
+    c1 = datetime.strptime(c1, "%d/%m/%Y")
+    d2 = datetime.strptime(d2, "%d/%m/%Y")
 
-    if len(BDSESSAO) == 0 and len(BDSALAS) == 0 and len(BDFILMES) == 0:
+    if c1 >= d2:
+        return 1
+    else:
+        return 0
+
+
+def compara2(d1, d2):  # Função para comparar e retorna um valor se for o pedido para a função DadosSalasFilmesPorData
+    c1 = datetime.strptime(d1, "%d/%m/%Y")
+    d2 = datetime.strptime(d2, "%d/%m/%Y")
+
+    if c1 <= d2:
+        return -1
+    else:
+        return 0
+
+
+def DadosSalasFilmesPorData(BDSESSAO, BDSALAS, BDFILMES):  # Função para mostrar sa sessao a sala e o filme de um intervalo de data pasado pelo usuario.
+    if len(BDSESSAO) == 0 or len(BDSALAS) == 0 or len(BDFILMES) == 0:
         print("\n AINDA NÃO FORAM FORNECIDOS DADOS! ")
         input("\n TECLE <ENTER>")
     else:
-        Data_inicial = input("\nDigite o Ano minimo para pesquisa: ")
-        Data_final = input("\nDigite o Ano maximo para pesquisa: ")
-        Sessao = BDSESSAO
-        Sessao = list(Sessao)
-        
+        Str_Data_inicial = input("\nDigite a data minima para pesquisa: Ex: 14/02/2020. ")
 
-        for sessao in Sessao:
-            lista_sessao = Sessao[sessao]
-            lista = list(lista_sessao)
-            if lista[2] >= Data_inicial and lista[2] <= Data_final:
-                print(f"\n As Salas com a capacidade pedida são: {lista_sessao}")
+        Str_Data_final = input("\nDigite a data maxima para pesquisa: Ex: 14/02/2020. ")
+
+        '''if existedata(Str_Data_inicial, BDSESSAO) == -1 and existedata(Str_Data_final, BDSESSAO) == -1:
+            print("datas nao existem no cadastro")
+        else:'''
+        for k, v in BDSESSAO.items():
+            if compara1(k[2], Str_Data_inicial) == 1 and compara2(k[2], Str_Data_final) == -1:
+                if k[1] in BDSALAS and k[0] in BDFILMES:           
+                    print(f"\n A Procura retornou a Sessão {k} preço do ingresso R${v}, que vai ser na Sala {BDSALAS[k[1]]}, e será passado o seguinte Filme {BDFILMES[k[0]]}.")
+
+        print("\n ** Procura Finalizada ** ")
+        input("\n TECLE <ENTER> ")

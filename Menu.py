@@ -10,6 +10,7 @@ def Menu():
     BDFILMES = {}
     BDSALAS = {}
 
+    # Variaveis para ser usadas nos laço while do menu e submenu.
     opcao = 0
     subopcao = 0
     while opcao != 5:  # Menu Inicial
@@ -122,7 +123,7 @@ def Menu():
 
 """
 
-Paritu função relatórios e pau pra quem te quer, que Deus me ajude kkk
+Partiu arquivos dos dicionarios e pau pra quem te quer, que Deus me ajude kkk
 
 
 """

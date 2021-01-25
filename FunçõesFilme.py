@@ -12,23 +12,25 @@ def ListarTodosFilmes(BDFILMES):
         input("\n TECLE <ENTER>")
     else:
         for sala, dados in BDFILMES.items():
-            print(f"\n Código do Filme: {sala} ", end='')
-            print(f" Dados: {dados}")
-        print("\n *** Listagem Pronta ***")
+            print(f"\n Código do Filme: {sala} Dados: {dados}", end='')
+            # print(f"\n {BDFILMES} \n")
+        print("\n\n *** Listagem Pronta ***")
         input("\n TECLE <ENTER> ")
 
 
 # Função para listar um Filme do Dicionário fornecido pelo Usuário pelo Código.
 def ListaUmFilmeDici(BDFILMES):
-
-    Procura_lista = int(input("\n Digite o Código do Filme que deseja pesquisar: "))
-
-    if Procura_lista in BDFILMES:
-        
-        print(f"\n A Procura retornou {BDFILMES[Procura_lista]}")
+    if len(BDFILMES) == 0:
+        print("\n AINDA NÃO FORAM CADASTRADO DADOS! ")
+        input("\n TECLE <ENTER>")
     else:
-        print("\n Não encontrei o que procura ")
-        input("\n TECLE <ENTER> ")
+        Procura_lista = int(input("\n Digite o Código do Filme que deseja pesquisar: "))
+
+        if Procura_lista in BDFILMES:
+            print(f"\n A Procura retornou a Sala com o Código: {Procura_lista} e seus Dados: {BDFILMES[Procura_lista]}")
+        else:
+            print("\n Não encontrei o que procura ")
+            input("\n TECLE <ENTER> ")
     print("\n ** Procura Finalizada ** ")
     input("\n TECLE <ENTER> ")
 
@@ -70,8 +72,9 @@ def IncluirFilmes(BDFILMES):
             Atores = input("\nDigite os Atores: ")
             Lst_Atores.append(Atores)
             cont += 1
+        # inclui os dados dos atores na lista lst atores e depois cria uma tupla com o codigo informado para o filme.
         Dados_Filmes.append(Lst_Atores)
-
+        
         # inclui no dicionario o código e a lista com os dados do código cadastrado:
         BDFILMES[Codigo_F] = Dados_Filmes
 
