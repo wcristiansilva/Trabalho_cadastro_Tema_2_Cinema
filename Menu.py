@@ -2,6 +2,7 @@ from FunçõesFilme import *
 from FunçõesSala import *
 from FunçõesSessões import *
 from FunçõesRelatórios import *
+from FunçõesArquivos import *
 
 
 def Menu():
@@ -124,6 +125,6 @@ def Menu():
 """
 
 Partiu arquivos dos dicionarios e pau pra quem te quer, que Deus me ajude kkk
-
+falta fazer o arquivo de sessoes e depois criar aqui no menu a funcao para jogar tudo dentro do dicionario novamente.
 
 """

@@ -3,6 +3,7 @@ Funções do menu Sessões
 
 """
 from datetime import datetime
+from FunçõesArquivos import *
 
 # Função para listar todas as Sessões do Dicionário: Falta modificar a função
 def ListarTodasSessoes(BDSESSOES):
@@ -11,8 +12,8 @@ def ListarTodasSessoes(BDSESSOES):
         print("\n AINDA NÃO FORAM CADASTRADO DADOS! ")
         input("\n TECLE <ENTER>")
     else:
-        for sala, dados in BDSESSOES.items():
-            print(f"\n Sessão: {sala}  Valor do Ingresso: {dados}")
+        for sessao, dados in BDSESSOES.items():
+            print(f"\n Sessão: {sessao}  Valor do Ingresso: {dados}")
             # print(f"\n {BDSESSOES} \n")
         print("\n *** Listagem Pronta ***")
         input("\n TECLE <ENTER> ")
@@ -62,16 +63,19 @@ def IncluirSessao(BDSESSOES, BDSALAS, BDFILMES):
 
                 # montando a tupla que vai ser a chave do dicionario sessoes
                 
-                Key_Codigo_Sessao = (Codigo_do_Filme, Codigo_da_Sala, Data_Sessao, Horário_da_Sessão)
+                Codigo_Se = (Codigo_do_Filme, Codigo_da_Sala, Data_Sessao, Horário_da_Sessão)
                 # verificando se já existe uma sessão com esses dados
                 
-                if Key_Codigo_Sessao not in BDSESSOES:
+                if Codigo_Se not in BDSESSOES:
                     # recebendo o preco do ingresso
                     preco = input("\nDigite o Valor do Ingresso: ")
                     # inclui esta sessao no dicionario:
-                    BDSESSOES[Key_Codigo_Sessao] = preco
-                    print(BDSESSOES)
+                    BDSESSOES[Codigo_Se] = preco
+                    # print(BDSESSOES)
                     print("\n ** Dados inseridos com sucesso! ** ")
+
+                    ArquivoSessões(BDSESSOES)
+                    
                     input("\n TECLE <ENTER> ")
                         
                 else:

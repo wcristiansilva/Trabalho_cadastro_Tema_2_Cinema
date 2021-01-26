@@ -2,7 +2,7 @@
 Funções do menu Salas
 
 """
-
+from FunçõesArquivos import *
 
 # Função para listar todas as Salas no Dicionário:
 def ListaTodasSalas(BDSALAS):
@@ -44,10 +44,10 @@ def IncluirSala(armazenamento):
 
     # pegando o Código que vai ser inserindo no dicionário da Sala:
     print("\n *** Incluindo nova Sala *** ")
-    Codigo = int(input("\n Digite o Código da Sala: "))
+    Codigo_Sa = int(input("\n Digite o Código da Sala: "))
 
     # Testa se já tem o código no dicionário:
-    if Codigo in armazenamento:
+    if Codigo_Sa in armazenamento:
         print("\n ** Código Existente no Sistema ** ")
         input("\n TECLE <ENTER> ")
 
@@ -69,9 +69,11 @@ def IncluirSala(armazenamento):
         # Tranforma a variável com os códigos em tupla pra não serem alterados:
 
         # inclui no dicionario o código e a lista com os dados do código cadastrado:
-        armazenamento[Codigo] = Dados_Sala
+        armazenamento[Codigo_Sa] = Dados_Sala
 
         print("\n ** Dados inseridos com sucesso!** ")
+
+        ArquivoSala(armazenamento)
 
         input("\n TECLE <ENTER> ")
 

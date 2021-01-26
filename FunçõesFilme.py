@@ -2,7 +2,7 @@
 Funções do menu Filmes
 
 """
-
+from FunçõesArquivos import *
 
 # Função para listar todos os Filmes do Dicionário:
 def ListarTodosFilmes(BDFILMES):
@@ -11,8 +11,8 @@ def ListarTodosFilmes(BDFILMES):
         print("\n AINDA NÃO FORAM CADASTRADO DADOS! ")
         input("\n TECLE <ENTER>")
     else:
-        for sala, dados in BDFILMES.items():
-            print(f"\n Código do Filme: {sala} Dados: {dados}", end='')
+        for filme, dados in BDFILMES.items():
+            print(f"\n Código do Filme: {filme} Dados: {dados}", end='')
             # print(f"\n {BDFILMES} \n")
         print("\n\n *** Listagem Pronta ***")
         input("\n TECLE <ENTER> ")
@@ -79,6 +79,9 @@ def IncluirFilmes(BDFILMES):
         BDFILMES[Codigo_F] = Dados_Filmes
 
         print("\n ** Dados inseridos com sucesso! ** ")
+
+        ArquivoFilme(BDFILMES)
+
         input("\n TECLE <ENTER> ")
 
 
