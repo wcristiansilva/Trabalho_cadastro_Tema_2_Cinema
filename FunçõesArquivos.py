@@ -8,12 +8,12 @@ def ArquivoSala(BDSALAS):
     arq = open("BDSALAS.txt", "a")
     # Vamos percorrer o dicionário inteiro:
     for Codigo_Sa in BDSALAS:
-        # Pegando a lista de telefones:
+        # Pegando a lista de dados:
         #
         # 0 1 
         # BDSALAS[Codigo_Sa] = [ "Nome" , "Capacidade", "Tipo de Exibição", "Acessibilidade" ]
         listadados = BDSALAS[Codigo_Sa][0]
-        # Convertendo a lista de telefones numa string,
+        # Convertendo os dados em uma string,
         # usando como separador o #:
         stringdados = "#".join(listadados)
         # Montando a linha que vai ser gravada:
@@ -29,7 +29,7 @@ def ArquivoFilme(BDFILMES):
     arq = open("BDFILMES.txt", "a")
     # Vamos percorrer o dicionário inteiro:
     for Codigo_F in BDFILMES:
-        # Pegando a lista de telefones:
+        # Pegando a lista de dados:
         #
         #      chave                      0                                1 
         # BD[Codigo_F] = [ "Nome", "Ano Lançamento", "Genero", [ ator1, ator2, ator3 ] ]
@@ -40,7 +40,7 @@ def ArquivoFilme(BDFILMES):
         stringatores = "#".join(listaatores)
         # Convertendo a lista de dados em uma string,
         # usando como separador o #:
-        stringdados = "#".join(listadados)
+        stringdados = "*".join(listadados)
         # Montando a linha que vai ser gravada:
         linha = Codigo_F + ";" + stringdados + ";" + stringatores + "\n"
         # Gravando a linha no arquivo:
