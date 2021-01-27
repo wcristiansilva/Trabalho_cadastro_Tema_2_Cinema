@@ -11,6 +11,10 @@ def Menu():
     BDFILMES = {}
     BDSALAS = {}
 
+    # Passando os dados dos arquivos para os dicionarios
+
+
+
     # Variaveis para ser usadas nos laço while do menu e submenu.
     opcao = 0
     subopcao = 0
