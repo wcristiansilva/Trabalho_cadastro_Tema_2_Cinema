@@ -166,6 +166,9 @@ def AlterarOuExcluirFilmes(BDFILMES):
                     input("\n TECLE <ENTER> ")
             elif escolha_deleta == 'T':
                 del BDFILMES[Dado]
+
+                ArquivoFilme(BDFILMES)
+
                 print("\n Excluido com Sucesso! ")
                 input("\n TECLE <ENTER>  ")
             
