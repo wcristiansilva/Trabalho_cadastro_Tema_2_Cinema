@@ -7,13 +7,16 @@ from FunçõesArquivos import *
 
 def Menu():
     # Declaração de Dicionários
-    BDSESSAO = {}
-    BDFILMES = {}
-    BDSALAS = {}
 
+    BDSALAS = {}
+    BDFILMES = {}
+    BDSESSAO = {}
+    
     # Passando os dados dos arquivos para os dicionarios
 
-
+    InsereSalasArq(BDSALAS)
+    InsereFilmesArq(BDFILMES)
+    InserSessoesArq(BDSESSAO)
 
     # Variaveis para ser usadas nos laço while do menu e submenu.
     opcao = 0
@@ -105,8 +108,8 @@ def Menu():
             while subopcao != 4:
                 print("\n1 - Listar Salas entre a Capacidade desejada:")
                 print("2 - Listar um Filme do Gênero desejado:")
-                print("3 - Listar Filme, Sala e Sessão por um intervalo de datas: Não rolou :/")
-                print("4 - Voltar para o Menu Inicial:")
+                print("3 - Listar Filme, Sala e Sessão por um intervalo de datas:")
+                print("4 - Voltar para o Menu Inicial: \n")
 
                 subopcao = int(input("\nDigite a opcao desejada: "))
                 while subopcao < 1 or subopcao > 4:

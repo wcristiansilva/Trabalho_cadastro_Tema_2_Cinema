@@ -56,7 +56,7 @@ def IncluirSala(armazenamento):
         Dados_Sala = []
         # inclusão dos dados na lista:
         Nome = input("Digite o nome da Sala: ")
-        Capacidade = (input("Digite a Capacidade da Sala: "))
+        Capacidade = input("Digite a Capacidade da Sala: ")
         TipoExibicao = input("Digite o Tipo de Exibição da Sala: ")
         Acessibilidade = input("Informe a Acessibilidade da Sala: ")
 

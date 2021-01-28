@@ -16,7 +16,8 @@ def DadosSalasCapacidade(BDSALAS):
         for sala in BDSALAS:
             lista = BDSALAS[sala]
             lista = list(lista)
-            if lista[1] >= Capacidade_minima and lista[1] <= Capacidade_maxima:
+            lista_Int = int(lista[1])
+            if lista_Int >= Capacidade_minima and lista_Int <= Capacidade_maxima:
                 print(f"\n As Salas com a capacidade pedida são: {lista}")
                 
                 print("\n *** Listagem Pronta ***")
@@ -32,7 +33,7 @@ def DadosFilmesGenero(BDFILMES):
         print("\n AINDA NÃO FORAM FORNECIDOS DADOS! ")
         input("\n TECLE <ENTER>")
     else:
-        Genero = input("\n Digite o Gênero desejado: ")
+        Genero = input("\n Digite o Gênero desejado: ").upper()
 
         print(f"\n Os Filmes com o Gênero pedido são: ")        
         for filmes in BDFILMES:

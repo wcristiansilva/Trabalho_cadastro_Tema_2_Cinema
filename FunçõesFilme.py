@@ -40,7 +40,7 @@ def IncluirFilmes(BDFILMES):
    
     # pegando o Código que vai ser inserindo no dicionário do Filme:
     print("\n *** Incluindo novo Filme *** ")
-    Codigo_F = int(input("\nDigite o Código do Filme: "))
+    Codigo_F = input("\nDigite o Código do Filme: ")
 
     # Testa se já tem o código no dicionário:
     if Codigo_F in BDFILMES:
@@ -53,7 +53,7 @@ def IncluirFilmes(BDFILMES):
         # inclusão dos dados na lista:
         Nome = input("Digite o nome do Filme: ")
         AnoLancamento = input("Digite o Ano de Lançamento: ")
-        Genero = input("Digite o Gênero: ")
+        Genero = input("Digite o Gênero: ").upper()
 
         # Adiciona os Dados na Lista Dados_Filmes:
         Dados_Filmes.append(Nome)
@@ -89,7 +89,7 @@ def IncluirFilmes(BDFILMES):
 def AlterarOuExcluirFilmes(BDFILMES): 
         # print(armazenamento) # Usado pra visualizar o dic antes de falzer algo durante os teste
     
-    Dado = int(input(" Digite o Código do Filme que deseja alterar ou excluir: "))
+    Dado = input(" Digite o Código do Filme que deseja alterar ou excluir: ")
     if Dado in BDFILMES:
         print("\n Para Alterar Digite A ou E para Excluir: ")
         op = input("\n Deseja apagar ou excluir? ").upper()[0]
