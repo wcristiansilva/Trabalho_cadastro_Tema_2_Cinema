@@ -44,7 +44,7 @@ def IncluirSala(armazenamento):
 
     # pegando o Código que vai ser inserindo no dicionário da Sala:
     print("\n *** Incluindo nova Sala *** ")
-    Codigo_Sa = int(input("\n Digite o Código da Sala: "))
+    Codigo_Sa = input("\n Digite o Código da Sala: ")
 
     # Testa se já tem o código no dicionário:
     if Codigo_Sa in armazenamento:

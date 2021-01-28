@@ -1,4 +1,5 @@
 """
+
 Funções para Criar o Arquivo do Dicionario
 
 """
@@ -80,6 +81,7 @@ def ArquivoSessões(BDSESSAO):
 
 
 """
+
 Funções para inserir dados do Arquivo no Dicionario
 
 """

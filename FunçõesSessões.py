@@ -44,11 +44,11 @@ def IncluirSessao(BDSESSOES, BDSALAS, BDFILMES):
         # pegando os Códigos que vão ser inserido no dicionário da Sessão:
         print("\n *** Incluindo nova Sessão *** ")
         
-        Codigo_do_Filme = int(input("\nDigite o Código do Filme: "))
+        Codigo_do_Filme = input("\nDigite o Código do Filme: ")
 
         # Testa se já tem o código do Filme no dicionário Filmes:
         if Codigo_do_Filme in BDFILMES:
-            Codigo_da_Sala = int(input("\nDigite o Códiogo da Sala: "))
+            Codigo_da_Sala = input("\nDigite o Códiogo da Sala: ")
             
             # Testa se já tem o código da Sala no dicionário Salas:
             if Codigo_da_Sala in BDSALAS:
