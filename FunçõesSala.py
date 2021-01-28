@@ -82,7 +82,7 @@ def IncluirSala(armazenamento):
 def AlterarOuExcluirSalas(BDSALAS):
     # print(armazenamento) # Usado pra visualizar o dic antes de falzer algo durante os teste
     
-    Dado = int(input(" Digite o Código da sala que deseja alterar ou excluir: "))
+    Dado = input(" Digite o Código da sala que deseja alterar ou excluir: ")
     if Dado in BDSALAS:
         print("\n Para Alterar Digite A ou E para Excluir: ")
         op = str(input("\n Deseja apagar ou excluir? ")).upper()[0]
