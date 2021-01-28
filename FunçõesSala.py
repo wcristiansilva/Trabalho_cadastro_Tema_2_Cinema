@@ -131,8 +131,6 @@ def AlterarOuExcluirSalas(BDSALAS):
                     input("\n TECLE <ENTER> ")
             elif escolha_deleta == 'T':
                 del BDSALAS[Dado]
-                
-                ArquivoSala(BDSALAS)
 
                 print("\n Dado Excluido com Sucesso! ")
                 input("\n TECLE <ENTER>  ")
@@ -146,3 +144,5 @@ def AlterarOuExcluirSalas(BDSALAS):
     else:
         print("\n NÃO FOI ENCONTRADO O DADO ESPECIFICADO! ")
         input("\n TECLE <ENTER> ")
+        
+    ArquivoSala(BDSALAS)

@@ -126,9 +126,7 @@ def AlterarOuExcluirSessoes(armazenamento):
 
             if escolha_deleta == 'S':
                 del armazenamento[Dado]
-
-                ArquivoSessões(armazenamento)
-
+                
                 print("\n Excluido com Sucesso! ")
                 input("\n TECLE <ENTER>  ")
             elif escolha_deleta == 'N':
@@ -142,3 +140,5 @@ def AlterarOuExcluirSessoes(armazenamento):
     else:
         print("\n NÃO FOI ENCONTRADO O DADO ESPECIFICADO! ")
         input("\n TECLE <ENTER> ")
+
+    ArquivoSessões(armazenamento)
