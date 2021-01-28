@@ -1,5 +1,5 @@
-from FunçõesFilme import *
 from FunçõesSala import *
+from FunçõesFilme import *
 from FunçõesSessões import *
 from FunçõesRelatórios import *
 from FunçõesArquivos import *
