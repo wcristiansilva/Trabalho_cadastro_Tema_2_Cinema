@@ -66,10 +66,9 @@ def ArquivoSessões(BDSESSAO):
         for d in listak:
             listakey.append(d)
         
-        lista = BDSESSAO[key][0]
         # Convertendo a lista que tem as chaves numa string,
         # usando como separador o #:
-        stringkey = "#".join(str(lista) )
+        stringkey = "#".join(listakey)
         # Montando a linha que vai ser gravada:
         linha = stringkey + "#" + BDSESSAO[key] + "\n"
         # Gravando a linha no arquivo:
