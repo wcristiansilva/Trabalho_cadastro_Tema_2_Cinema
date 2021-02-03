@@ -163,7 +163,7 @@ def InserSessoesArq(BDSESSAO):
         linha = linha[:len(linha)-1]
         # a linha é:
         # 1#1#14/03/2020#15:00#25,00
-        # Vamos quebrar por ;
+        # Vamos quebrar por #
         lista = linha.split("#") # [1# 1# 14/03/2020# 15:00# 25,00]
         # codigo filme está em lista[0]
         # codigo sala está em lista[1]
