@@ -162,8 +162,7 @@ def InserSessoesArq(BDSESSAO):
         # removendo o \n do final da linha:
         linha = linha[:len(linha)-1]
         # a linha é:
-        # 1#1#14/03/2020#15:00;25,00
-        #
+        # 1#1#14/03/2020#15:00#25,00
         # Vamos quebrar por ;
         lista = linha.split("#") # [1# 1# 14/03/2020# 15:00# 25,00]
         # codigo filme está em lista[0]
@@ -176,7 +175,7 @@ def InserSessoesArq(BDSESSAO):
         # usando o split com ;
         # BDSESSAO[(Codigo_do_Filme, Codigo_da_Sala, Data_Sessao, Horário_da_Sessão)] : preco
         # [(Codigo_do_Filme, Codigo_da_Sala, Data_Sessao, Horário_da_Sessão)] : preco
-        preco = lista[4] # .split("#")
+        preco = lista[4]
 
         # Colocando os dados no dicionario:
 
