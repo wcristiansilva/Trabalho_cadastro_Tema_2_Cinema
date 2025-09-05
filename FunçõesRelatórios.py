@@ -50,7 +50,7 @@ def DadosFilmesGenero(BDFILMES):
                 input("\n TECLE <ENTER> ")
 
 
-def compara1(c1, d2):  # Função para comparar e retorna um valor se for o pedido para a função DadosSalasFilmesPorData
+def compara1(c1, d2):  # Função para comparar e retornar um valor se for o pedido para a função DadosSalasFilmesPorData
     c1 = datetime.strptime(c1, "%d/%m/%Y")
     d2 = datetime.strptime(d2, "%d/%m/%Y")
 
@@ -60,7 +60,7 @@ def compara1(c1, d2):  # Função para comparar e retorna um valor se for o pedi
         return 0
 
 
-def compara2(d1, d2):  # Função para comparar e retorna um valor se for o pedido para a função DadosSalasFilmesPorData
+def compara2(d1, d2):  # Função para comparar e retornar um valor se for o pedido para a função DadosSalasFilmesPorData
     c1 = datetime.strptime(d1, "%d/%m/%Y")
     d2 = datetime.strptime(d2, "%d/%m/%Y")
 
@@ -70,7 +70,7 @@ def compara2(d1, d2):  # Função para comparar e retorna um valor se for o pedi
         return 0
 
 
-def DadosSalasFilmesPorData(BDSESSAO, BDSALAS, BDFILMES):  # Função para mostrar sa sessao a sala e o filme de um intervalo de data pasado pelo usuario.
+def DadosSalasFilmesPorData(BDSESSAO, BDSALAS, BDFILMES):  # Função para mostrar as sessao a sala e o filme de um intervalo de data passado pelo usuario.
     if len(BDSESSAO) == 0 or len(BDSALAS) == 0 or len(BDFILMES) == 0:
         print("\n AINDA NÃO FORAM FORNECIDOS DADOS! ")
         input("\n TECLE <ENTER>")
